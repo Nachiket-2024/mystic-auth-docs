@@ -1,0 +1,98 @@
+/* Footer: horizontal links with | dividers, centered, no title column. */
+
+/* Infima's stock footer padding (2rem top/bottom, from
+   --ifm-footer-padding-vertical: calc(--ifm-spacing-vertical * 2)) plus a
+   1rem margin under the link row was sized for a footer with title columns
+   and multiple stacked link lists - this footer is a single centered row
+   of links above a copyright line, so that much padding just reads as
+   dead space. */
+:root {
+  --ifm-footer-padding-vertical: 1rem;
+}
+
+footer .footer__links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+footer .theme-layout-footer-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+footer .footer__title {
+  display: none;
+}
+
+footer .footer__items {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer .footer__bottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+footer .footer__copyright {
+  text-align: center;
+  width: 100%;
+}
+
+/* Ensure both rows align with the same container width */
+footer .footer__links > div,
+footer .footer__bottom > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Override Infima container padding that may cause offset */
+footer .container {
+  max-width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Infima's grid row/col (.row has a negative left/right margin to offset
+   .col's own padding) is what actually held the link row - the flex
+   `justify-content: center` rules above center that row/col *within
+   themselves*, but the row's negative margin still shifts the whole thing
+   a few pixels left of true center, which is why it read as "a bit off"
+   next to the copyright line below (which isn't inside a .row/.col at
+   all). Zeroing both neutralizes that shift. */
+footer .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+footer .col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: 100% !important;
+  flex: 1 1 auto !important;
+}
+
+footer .footer__item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+footer .footer__item:not(:last-child)::after {
+  content: '|';
+  margin-left: 0.5rem;
+  color: var(--ifm-color-emphasis-300);
+}

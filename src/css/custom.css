@@ -1,0 +1,20 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ *
+ * This file is just the entry point - each concern lives in its own module
+ * below (mirroring mystic-auth-actual-frontend's own single-purpose files,
+ * e.g. theme/themeTokens.ts, ui/styles/buttonStyles.ts), kept import order
+ * so tokens.css's variables are defined before anything else uses them.
+ */
+@import './tokens.css';
+@import './layout.css';
+@import './sidebar.css';
+@import './toc.css';
+@import './navbar.css';
+@import './footer.css';
+@import './mermaid.css';
+@import './buttons.css';
+@import './surfaces.css';
+@import './pagination.css';

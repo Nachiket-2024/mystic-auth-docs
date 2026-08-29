@@ -1,0 +1,52 @@
+/* Right sidebar ("In this page" table of contents): surface, sizing, and
+   a numbered-list treatment instead of Infima's plain bullet-less links. */
+
+.theme-doc-toc-desktop {
+  background-color: transparent !important;
+}
+
+.theme-doc-toc-desktop .table-of-contents {
+  font-size: 0.95rem;
+}
+
+.theme-doc-toc-desktop .table-of-contents li {
+  line-height: 1.6;
+}
+
+.theme-doc-toc-desktop .table-of-contents a {
+  font-size: 0.95rem;
+}
+
+/* Numbered Table of Contents */
+.theme-doc-toc-desktop .table-of-contents ul {
+  counter-reset: toc-counter;
+}
+
+.theme-doc-toc-desktop .table-of-contents li {
+  counter-increment: toc-counter;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link::before {
+  content: counter(toc-counter) '. ';
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.4em;
+  display: inline-block;
+}
+
+/* Docusaurus's scroll-spy only marks a heading active once it's been
+   scrolled past a threshold near the top of the viewport - on page load,
+   scrolled to top, the intro paragraph is still what's in view (nothing
+   has crossed that line yet), so nothing in the TOC is highlighted at all.
+   Since there's no earlier heading a reader could actually be "at" in that
+   state, defaulting to the first entry reads as correct rather than
+   broken/inert - and this rule stops applying the instant scroll-spy marks
+   a real active link, via :has(). */
+.theme-doc-toc-desktop
+  ul.table-of-contents:not(:has(.table-of-contents__link--active))
+  > li:first-child
+  > a.table-of-contents__link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}

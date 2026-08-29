@@ -1,0 +1,111 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4.5rem 0 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4.5rem 1.5rem 1.5rem;
+  }
+}
+
+.logoMark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Size/tracking matches mystic-auth-actual-frontend's own LandingPage.tsx
+   hero (Heading size="4xl" letterSpacing="-0.02em"). */
+.heroTitle {
+  color: var(--ifm-color-primary);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Matches LandingPage.tsx's hero subtitle (Text fontSize="lg" color="fg.muted") -
+   a neutral muted gray rather than a brand-tinted one, same role its own
+   highlight-card descriptions use below. */
+.heroSubtitle {
+  font-size: 1.125rem;
+  color: var(--fg-muted) !important;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Cut down from the stock 4rem top/bottom - that gap plus the hero's own
+   bottom padding is what made the space between "Get Started" and the
+   feature cards read as too large. */
+.features {
+  padding: 0.5rem 0 0;
+}
+
+/* Padding matches LandingPage.tsx's own highlight Card (p={4} = 1rem),
+   tighter than the 1.5rem this card-surface normally carries for the
+   larger homepage feature grid. */
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 2px 0 rgba(15, 23, 42, 0.06),
+    0 20px 40px -20px color-mix(in srgb, var(--brand-600) 35%, transparent);
+  border-color: var(--brand-600);
+}
+
+[data-theme='dark'] .featureCard:hover {
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.5),
+    0 20px 40px -20px color-mix(in srgb, var(--brand-500) 40%, transparent);
+  border-color: var(--brand-500);
+}
+
+/* Matches LandingPage.tsx's highlight icon (Icon boxSize={5} color="brand.solid"
+   mb={2}) - brand.solid resolves to brand.600 in both themes there, so this
+   stays the same amber rather than swapping in dark mode like most other
+   brand accents on this site do. */
+.featureIcon {
+  color: var(--brand-600);
+  margin-bottom: 0.5rem;
+}
+
+/* Weight/spacing matches LandingPage.tsx's highlight title
+   (Text fontWeight="semibold" mb={1}). */
+.featureTitle {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Matches LandingPage.tsx's highlight description (Text fontSize="sm" color="fg.muted"). */
+.featureDescription {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}

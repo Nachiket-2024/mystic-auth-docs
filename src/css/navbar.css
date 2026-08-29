@@ -1,0 +1,69 @@
+/* Navbar: logo/title sizing, search box, external-link divider, and
+   breadcrumbs (rendered directly under the navbar on doc pages). */
+
+/* Divider between external links */
+.navbar__items--right .navbar__item:has(a[href*='github.com'])::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 0.75rem;
+  margin-right: 0.25rem;
+  color: var(--ifm-color-emphasis-300);
+  font-weight: 300;
+}
+
+/* Logo sizing (matches mystic-auth Logo "md" size: text 2xl ≈ 1.5rem) */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar__logo {
+  height: 32px !important;
+  width: auto !important;
+}
+
+.navbar__title {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Search box: the local-search plugin's input ships with no border at all,
+   so it read as a plain unbounded text field floating in the navbar rather
+   than an actual control. */
+.navbar__search-input {
+  border: 1px solid var(--card-border) !important;
+  border-radius: 6px !important;
+  transition:
+    border-color 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--ifm-color-primary) !important;
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+/* Breadcrumbs - clickable with proper styling */
+.breadcrumbs__link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs__link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+  cursor: default;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link:hover {
+  text-decoration: none;
+}

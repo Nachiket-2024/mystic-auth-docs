@@ -1,0 +1,163 @@
+/* Mermaid diagrams: centering, and restyling the generic gray "neutral"
+   node/line colors to mystic-auth's own amber brand palette (light + dark). */
+
+/* Center-align Mermaid diagrams. The actual rendered container is
+   `.docusaurus-mermaid-container` (theme-mermaid's own class) - there is no
+   `.mermaid` element in the DOM at all, so every rule below targets that
+   real class (kept alongside `.mermaid` as a harmless fallback in case a
+   future theme-mermaid version renames it back). */
+.docusaurus-mermaid-container,
+.mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.docusaurus-mermaid-container svg,
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Center the text *inside* each node's label, not just the diagram as a
+   whole - a multi-line label (e.g. "\n" in flowchart node text) can render
+   via a <p>/<span> inside a foreignObject in some mermaid diagram types,
+   which defaults to left-aligned text and looks off-center in a
+   single-column flow (one box stacked above another). */
+.docusaurus-mermaid-container .nodeLabel,
+.docusaurus-mermaid-container .edgeLabel,
+.docusaurus-mermaid-container .label foreignObject div,
+.docusaurus-mermaid-container .label foreignObject span,
+.docusaurus-mermaid-container .label foreignObject p {
+  text-align: center !important;
+}
+
+.docusaurus-mermaid-container .node rect,
+.docusaurus-mermaid-container .node circle,
+.docusaurus-mermaid-container .node polygon,
+.docusaurus-mermaid-container .node path {
+  fill: var(--brand-100) !important;
+  stroke: var(--brand-600) !important;
+  stroke-width: 1.5px !important;
+}
+
+.docusaurus-mermaid-container .edgePath .path,
+.docusaurus-mermaid-container .flowchart-link {
+  stroke: var(--brand-700) !important;
+}
+
+.docusaurus-mermaid-container .arrowheadPath,
+.docusaurus-mermaid-container .arrowMarkerPath {
+  fill: var(--brand-700) !important;
+  stroke: var(--brand-700) !important;
+}
+
+.docusaurus-mermaid-container .nodeLabel,
+.docusaurus-mermaid-container .edgeLabel,
+.docusaurus-mermaid-container .label,
+.docusaurus-mermaid-container .label text,
+.docusaurus-mermaid-container span {
+  fill: var(--brand-950) !important;
+  color: var(--brand-950) !important;
+}
+
+.docusaurus-mermaid-container .edgeLabel {
+  background-color: var(--brand-50) !important;
+}
+
+/* Sequence diagrams: actor boxes, activation bars, and lifelines */
+.docusaurus-mermaid-container .actor {
+  fill: var(--brand-100) !important;
+  stroke: var(--brand-600) !important;
+}
+
+.docusaurus-mermaid-container .actor-line,
+.docusaurus-mermaid-container .messageLine0,
+.docusaurus-mermaid-container .messageLine1 {
+  stroke: var(--brand-700) !important;
+}
+
+.docusaurus-mermaid-container .messageText,
+.docusaurus-mermaid-container .actorText,
+.docusaurus-mermaid-container .loopText,
+.docusaurus-mermaid-container .loopText tspan,
+.docusaurus-mermaid-container .noteText {
+  fill: var(--brand-950) !important;
+}
+
+.docusaurus-mermaid-container .labelBox {
+  fill: var(--brand-100) !important;
+  stroke: var(--brand-600) !important;
+}
+
+/* Wrapped edge labels (e.g. a long "miss, fetch from Postgres, then cache
+   60s" label on an arrow) get an extra `.labelBkg` div with its own
+   semi-transparent white inline background, layered on TOP of the
+   `.edgeLabel` background above - that translucent white is what made
+   these look like a mismatched washed-out sticker against the cream page,
+   while a short label with no `.labelBkg` (e.g. "hit") had no box at all.
+   Overriding it to the same opaque brand-50 as `.edgeLabel` makes both
+   consistent. */
+.docusaurus-mermaid-container .labelBkg {
+  background-color: var(--brand-50) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .labelBkg {
+  background-color: var(--brand-canvas-dark) !important;
+}
+
+.docusaurus-mermaid-container .note {
+  fill: var(--brand-50) !important;
+  stroke: var(--brand-600) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .node rect,
+[data-theme='dark'] .docusaurus-mermaid-container .node circle,
+[data-theme='dark'] .docusaurus-mermaid-container .node polygon,
+[data-theme='dark'] .docusaurus-mermaid-container .node path {
+  fill: var(--brand-surface-dark) !important;
+  stroke: var(--brand-500) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .edgePath .path,
+[data-theme='dark'] .docusaurus-mermaid-container .flowchart-link,
+[data-theme='dark'] .docusaurus-mermaid-container .actor-line,
+[data-theme='dark'] .docusaurus-mermaid-container .messageLine0,
+[data-theme='dark'] .docusaurus-mermaid-container .messageLine1 {
+  stroke: var(--brand-500) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .arrowheadPath,
+[data-theme='dark'] .docusaurus-mermaid-container .arrowMarkerPath {
+  fill: var(--brand-500) !important;
+  stroke: var(--brand-500) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .nodeLabel,
+[data-theme='dark'] .docusaurus-mermaid-container .edgeLabel,
+[data-theme='dark'] .docusaurus-mermaid-container .label,
+[data-theme='dark'] .docusaurus-mermaid-container .label text,
+[data-theme='dark'] .docusaurus-mermaid-container span,
+[data-theme='dark'] .docusaurus-mermaid-container .messageText,
+[data-theme='dark'] .docusaurus-mermaid-container .actorText,
+[data-theme='dark'] .docusaurus-mermaid-container .loopText,
+[data-theme='dark'] .docusaurus-mermaid-container .loopText tspan,
+[data-theme='dark'] .docusaurus-mermaid-container .noteText {
+  fill: var(--brand-200) !important;
+  color: var(--brand-200) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .edgeLabel {
+  background-color: var(--brand-canvas-dark) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .actor,
+[data-theme='dark'] .docusaurus-mermaid-container .labelBox {
+  fill: var(--brand-surface-dark) !important;
+  stroke: var(--brand-500) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .note {
+  fill: var(--brand-canvas-dark) !important;
+  stroke: var(--brand-500) !important;
+}

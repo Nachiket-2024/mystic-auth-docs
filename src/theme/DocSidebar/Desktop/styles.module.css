@@ -1,0 +1,111 @@
+@media (min-width: 997px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: var(--ifm-navbar-height);
+    min-width: min-content;
+  }
+
+  .sidebarWithHideableNavbar {
+    padding-top: 0;
+  }
+
+  .sidebarHidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .sidebarLogo {
+    display: flex !important;
+    align-items: center;
+    margin: 0 var(--ifm-navbar-padding-horizontal);
+    min-height: var(--ifm-navbar-height);
+    max-height: var(--ifm-navbar-height);
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  .sidebarLogo img {
+    margin-right: 0.5rem;
+    height: 2rem;
+  }
+}
+
+.sidebarLogo {
+  display: none;
+}
+
+.sidebarHeader {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  display: flex;
+  gap: 0.25rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  flex-shrink: 0;
+  background: #fff;
+  z-index: 1;
+  width: var(--doc-sidebar-width);
+  max-width: var(--doc-sidebar-width);
+}
+
+[data-theme='dark'] .sidebarHeader {
+  background: #27272a;
+}
+
+.sidebarToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.1s var(--ifm-transition-easing),
+    color 0.1s var(--ifm-transition-easing),
+    border-color 0.1s var(--ifm-transition-easing);
+  text-align: center;
+  justify-content: center;
+}
+
+[data-theme='dark'] .sidebarToggleBtn {
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+.sidebarToggleBtn:hover {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+[data-theme='dark'] .sidebarToggleBtn:hover {
+  background-color: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+  border-color: var(--ifm-color-primary-darker);
+}
+
+.sidebarToggleBtn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.sidebarToggleBtn svg {
+  flex-shrink: 0;
+  transition: color 0.1s var(--ifm-transition-easing);
+}
+
+.sidebarToggleBtn:hover svg {
+  color: inherit;
+}
+
+[data-theme='dark'] .sidebarToggleBtn:hover svg {
+  color: inherit;
+}
