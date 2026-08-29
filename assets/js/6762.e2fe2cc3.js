@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmystic_auth_docs=self.webpackChunkmystic_auth_docs||[]).push([["6762"],{7089(c,e,s){s.d(e,{createArchitectureServices:()=>t.S});var t=s(5796);s(4954)}}]);
