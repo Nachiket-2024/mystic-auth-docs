@@ -2,7 +2,7 @@
 
 ---
 
-See [Translations Overview](overview.md) for the architecture (translation setup, date/numeral
+See [Translations Overview](overview/README.md) for the architecture (translation setup, date/numeral
 formatting, the language store, the toggle, and backend error codes) this tutorial builds on.
 
 ---
@@ -168,7 +168,7 @@ just appear.
 
 ## Where to go next
 
-- [Translations Overview](overview.md): the architecture this tutorial builds on.
+- [Translations Overview](overview/README.md): the architecture this tutorial builds on.
 - [Frontend Architecture](../architecture/frontend.md): how `translations/`, `store/`, and `layout/`
   fit into the rest of the frontend module layout.
 - [Testing Overview](../testing/overview.md): how to run the frontend Vitest suite this doc's

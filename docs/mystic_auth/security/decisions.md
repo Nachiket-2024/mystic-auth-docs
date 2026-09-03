@@ -45,6 +45,6 @@ See [Security Decisions: Product](decisions-product.md) for the full entries.
 - [Account lifecycle: soft delete by default](decisions-product.md#account-lifecycle-soft-delete-by-default): reversible by default, purge gated by its own permission, grace-period auto-purge.
 - [Why MFA is not enabled](decisions-product.md#why-mfa-is-not-enabled): an intentionally deferred scope boundary, with the hooks already in place.
 - [Intentionally deferred features](decisions-product.md#intentionally-deferred-features): per-endpoint rate limits, non-SMTP email providers, deploy automation.
-- [Known accepted gaps / follow-ups](decisions-product.md#known-accepted-gaps--follow-ups): no automated database-backup scheduler.
+- [Known accepted gaps / follow-ups](../concerns/README.md#database-backups-are-scheduled-but-not-production-grade): no automated database-backup scheduler.
 
 ---

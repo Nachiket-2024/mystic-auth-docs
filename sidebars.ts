@@ -16,7 +16,18 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'mystic_auth/template-usage/frontend-customization',
-        'mystic_auth/template-usage/syncing-upstream',
+        {
+          type: 'category',
+          label: 'Syncing Upstream',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/template-usage/syncing-upstream/README',
+          },
+          items: [
+            'mystic_auth/template-usage/syncing-upstream/rebuild-and-push',
+            'mystic_auth/template-usage/syncing-upstream/troubleshooting',
+          ],
+        },
         'mystic_auth/template-usage/worked-example',
       ],
     },
@@ -45,6 +56,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'mystic_auth/architecture/backend',
         'mystic_auth/architecture/frontend',
+        'mystic_auth/architecture/code-map',
       ],
     },
     {
@@ -59,10 +71,46 @@ const sidebars: SidebarsConfig = {
         'mystic_auth/authentication/login',
         'mystic_auth/authentication/logout',
         'mystic_auth/authentication/password-reset',
-        'mystic_auth/authentication/session-management',
+        {
+          type: 'category',
+          label: 'Session Management',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/authentication/session-management/README',
+          },
+          items: [
+            'mystic_auth/authentication/session-management/token-lifecycle',
+            'mystic_auth/authentication/session-management/list-and-revoke-sessions',
+            'mystic_auth/authentication/session-management/real-time-push',
+            'mystic_auth/authentication/session-management/frontend-and-checks',
+          ],
+        },
         'mystic_auth/authentication/oauth2-pkce',
-        'mystic_auth/authentication/account-deletion',
-        'mystic_auth/authentication/system-superuser',
+        {
+          type: 'category',
+          label: 'Account Deletion and Purge',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/authentication/account-deletion/README',
+          },
+          items: [
+            'mystic_auth/authentication/account-deletion/self-service',
+            'mystic_auth/authentication/account-deletion/admin-and-purge',
+            'mystic_auth/authentication/account-deletion/frontend',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'System Superuser',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/authentication/system-superuser/README',
+          },
+          items: [
+            'mystic_auth/authentication/system-superuser/creation-and-promotion-behavior',
+            'mystic_auth/authentication/system-superuser/running-commands',
+          ],
+        },
       ],
     },
     {
@@ -70,9 +118,23 @@ const sidebars: SidebarsConfig = {
       label: 'Authorization (PBAC)',
       link: {
         type: 'doc',
-        id: 'mystic_auth/authorization/architecture',
+        id: 'mystic_auth/authorization/architecture/README',
       },
       items: [
+        {
+          type: 'category',
+          label: 'Architecture',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/authorization/architecture/README',
+          },
+          items: [
+            'mystic_auth/authorization/architecture/component-responsibilities',
+            'mystic_auth/authorization/architecture/full-route-list',
+            'mystic_auth/authorization/architecture/frontend-ui',
+            'mystic_auth/authorization/architecture/real-time-push',
+          ],
+        },
         'mystic_auth/authorization/policy-examples',
         'mystic_auth/authorization/rbac-quickstart',
         'mystic_auth/authorization/common-patterns',
@@ -80,7 +142,19 @@ const sidebars: SidebarsConfig = {
         'mystic_auth/authorization/adding-permissions',
         'mystic_auth/authorization/adding-condition-handlers',
         'mystic_auth/authorization/writing-testing-policies',
-        'mystic_auth/authorization/troubleshooting',
+        {
+          type: 'category',
+          label: 'Troubleshooting',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/authorization/troubleshooting/README',
+          },
+          items: [
+            'mystic_auth/authorization/troubleshooting/common-issues',
+            'mystic_auth/authorization/troubleshooting/redis-and-logging',
+            'mystic_auth/authorization/troubleshooting/database-connection',
+          ],
+        },
       ],
     },
     {
@@ -95,6 +169,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'mystic_auth/configuration/environment',
+      label: 'Configuration',
+    },
+    {
+      type: 'doc',
       id: 'mystic_auth/database/design',
       label: 'Database',
     },
@@ -106,13 +185,41 @@ const sidebars: SidebarsConfig = {
         id: 'mystic_auth/deployment/guide',
       },
       items: [
+        'mystic_auth/deployment/environment',
+        'mystic_auth/deployment/routing',
+        'mystic_auth/deployment/migrations-and-backups',
+        'mystic_auth/deployment/production-host',
         'mystic_auth/deployment/dev',
-        'mystic_auth/deployment/local-prod',
+        {
+          type: 'category',
+          label: 'Local-Prod Deployment',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/deployment/local-prod/README',
+          },
+          items: [
+            'mystic_auth/deployment/local-prod/cloudflare-quick-tunnel',
+            'mystic_auth/deployment/local-prod/cloudflare-named-tunnel',
+            'mystic_auth/deployment/local-prod/ngrok-tunnel',
+            'mystic_auth/deployment/local-prod/tailscale-funnel',
+          ],
+        },
         'mystic_auth/deployment/prod',
-        'mystic_auth/deployment/quick-tunnel',
-        'mystic_auth/deployment/named-tunnel',
-        'mystic_auth/docker/overview',
-        'mystic_auth/docker/validation-history',
+        {
+          type: 'category',
+          label: 'Docker',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/docker/overview',
+          },
+          items: [
+            'mystic_auth/docker/dockerfiles',
+            'mystic_auth/docker/compose-modes',
+            'mystic_auth/docker/healthchecks',
+            'mystic_auth/docker/dev-workflow',
+            'mystic_auth/docker/validation-history',
+          ],
+        },
         'mystic_auth/cicd/overview',
       ],
     },
@@ -127,6 +234,23 @@ const sidebars: SidebarsConfig = {
       label: 'Geolocation',
     },
     {
+      type: 'category',
+      label: 'Glossary',
+      link: {
+        type: 'doc',
+        id: 'mystic_auth/glossary/README',
+      },
+      items: [
+        'mystic_auth/glossary/authentication',
+        'mystic_auth/glossary/authorization',
+        'mystic_auth/glossary/infrastructure',
+        'mystic_auth/glossary/frontend',
+        'mystic_auth/glossary/operations',
+        'mystic_auth/glossary/testing',
+        'mystic_auth/glossary/tooling',
+      ],
+    },
+    {
       type: 'doc',
       id: 'mystic_auth/legal/overview',
       label: 'Legal',
@@ -139,8 +263,27 @@ const sidebars: SidebarsConfig = {
         id: 'mystic_auth/project-story/README',
       },
       items: [
-        'mystic_auth/project-story/structure-then-and-now',
-        'mystic_auth/project-story/timeline',
+        {
+          type: 'category',
+          label: 'How It Evolved',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/project-story/timeline/README',
+          },
+          items: [
+            'mystic_auth/project-story/timeline/2025',
+            'mystic_auth/project-story/timeline/2026',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Structure: Then and Now',
+          items: [
+            'mystic_auth/project-story/structure-then-and-now/folder-tree-then',
+            'mystic_auth/project-story/structure-then-and-now/folder-tree-now',
+            'mystic_auth/project-story/structure-then-and-now/what-changed',
+          ],
+        },
         'mystic_auth/project-story/tools',
       ],
     },
@@ -170,11 +313,34 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'mystic_auth/testing/coverage-authentication',
-        'mystic_auth/testing/coverage-authorization',
+        {
+          type: 'category',
+          label: 'Authorization (PBAC) Coverage',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/testing/coverage-authorization/README',
+          },
+          items: [
+            'mystic_auth/testing/coverage-authorization/policies-and-conditions',
+            'mystic_auth/testing/coverage-authorization/access-and-audit',
+          ],
+        },
         'mystic_auth/testing/coverage-users-and-sessions',
         'mystic_auth/testing/coverage-security',
-        'mystic_auth/testing/coverage-infrastructure',
+        {
+          type: 'category',
+          label: 'Infrastructure Coverage',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/testing/coverage-infrastructure/README',
+          },
+          items: [
+            'mystic_auth/testing/coverage-infrastructure/core-infrastructure',
+            'mystic_auth/testing/coverage-infrastructure/observability-and-workers',
+          ],
+        },
         'mystic_auth/testing/coverage-frontend',
+        'mystic_auth/testing/browser-e2e',
       ],
     },
     {
@@ -182,9 +348,13 @@ const sidebars: SidebarsConfig = {
       label: 'Translations',
       link: {
         type: 'doc',
-        id: 'mystic_auth/translations/overview',
+        id: 'mystic_auth/translations/overview/README',
       },
-      items: ['mystic_auth/translations/adding-a-language'],
+      items: [
+        'mystic_auth/translations/overview/setup-and-formatting',
+        'mystic_auth/translations/overview/ui-and-errors',
+        'mystic_auth/translations/adding-a-language',
+      ],
     },
   ],
 };
