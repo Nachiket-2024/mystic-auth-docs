@@ -1,7 +1,5 @@
-/* Navbar: logo/title sizing, search box, external-link divider, and
-   breadcrumbs (rendered directly under the navbar on doc pages). */
+/* Navbar: logo/title sizing, search box, external-link divider, breadcrumbs. */
 
-/* Divider between external links */
 .navbar__items--right .navbar__item:has(a[href*='github.com'])::after {
   content: '|';
   display: inline-block;
@@ -11,7 +9,7 @@
   font-weight: 300;
 }
 
-/* Logo sizing (matches mystic-auth Logo "md" size: text 2xl ≈ 1.5rem) */
+/* Logo sizing matches mystic-auth's "md" logo size */
 .navbar__brand {
   display: flex;
   align-items: center;
@@ -30,9 +28,7 @@
   color: var(--ifm-color-primary) !important;
 }
 
-/* Search box: the local-search plugin's input ships with no border at all,
-   so it read as a plain unbounded text field floating in the navbar rather
-   than an actual control. */
+/* Search box border (the local-search plugin ships with none) */
 .navbar__search-input {
   border: 1px solid var(--card-border) !important;
   border-radius: 6px !important;
@@ -47,7 +43,6 @@
   outline: none;
 }
 
-/* Breadcrumbs - clickable with proper styling */
 .breadcrumbs__link {
   color: var(--ifm-color-primary);
   text-decoration: none;

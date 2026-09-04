@@ -11,9 +11,8 @@ import styles from './styles.module.css';
 
 const THRESHOLD = 300;
 
-// Unlike the default Docusaurus behavior (which only shows the button while
-// scrolling *up*, past the threshold), this shows it any time the page is
-// scrolled below the threshold, regardless of scroll direction.
+// Shows the button whenever scrolled past the threshold, regardless of
+// scroll direction (default Docusaurus only shows it while scrolling up).
 function useBackToTopButton() {
   const [shown, setShown] = useState(false);
   const isFocusedAnchor = useRef(false);

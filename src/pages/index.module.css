@@ -1,7 +1,4 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* Scoped locally as a CSS module. */
 
 .heroBanner {
   padding: 4.5rem 0 1.5rem;
@@ -25,8 +22,7 @@
   margin-bottom: 1rem;
 }
 
-/* Size/tracking matches mystic-auth-actual-frontend's own LandingPage.tsx
-   hero (Heading size="4xl" letterSpacing="-0.02em"). */
+/* Matches mystic-auth's hero heading (4xl, letterSpacing -0.02em) */
 .heroTitle {
   color: var(--ifm-color-primary);
   font-size: 2.25rem;
@@ -35,9 +31,7 @@
   margin: 0;
 }
 
-/* Matches LandingPage.tsx's hero subtitle (Text fontSize="lg" color="fg.muted") -
-   a neutral muted gray rather than a brand-tinted one, same role its own
-   highlight-card descriptions use below. */
+/* Matches mystic-auth's hero subtitle (muted gray text) */
 .heroSubtitle {
   font-size: 1.125rem;
   color: var(--fg-muted) !important;
@@ -51,16 +45,11 @@
   flex-wrap: wrap;
 }
 
-/* Cut down from the stock 4rem top/bottom - that gap plus the hero's own
-   bottom padding is what made the space between "Get Started" and the
-   feature cards read as too large. */
 .features {
   padding: 0.5rem 0 0;
 }
 
-/* Padding matches LandingPage.tsx's own highlight Card (p={4} = 1rem),
-   tighter than the 1.5rem this card-surface normally carries for the
-   larger homepage feature grid. */
+/* Padding matches mystic-auth's highlight card (1rem) */
 .featureCard {
   display: flex;
   flex-direction: column;
@@ -85,24 +74,18 @@
   border-color: var(--brand-500);
 }
 
-/* Matches LandingPage.tsx's highlight icon (Icon boxSize={5} color="brand.solid"
-   mb={2}) - brand.solid resolves to brand.600 in both themes there, so this
-   stays the same amber rather than swapping in dark mode like most other
-   brand accents on this site do. */
+/* Matches mystic-auth's highlight icon color (brand.solid) */
 .featureIcon {
   color: var(--brand-600);
   margin-bottom: 0.5rem;
 }
 
-/* Weight/spacing matches LandingPage.tsx's highlight title
-   (Text fontWeight="semibold" mb={1}). */
 .featureTitle {
   margin-bottom: 0.35rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-/* Matches LandingPage.tsx's highlight description (Text fontSize="sm" color="fg.muted"). */
 .featureDescription {
   color: var(--fg-muted);
   font-size: 0.9rem;

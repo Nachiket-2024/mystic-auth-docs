@@ -2,25 +2,18 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
   title: 'MysticAuth',
   tagline: 'Full-stack authentication & PBAC authorization template',
   favicon: 'img/favicon.svg',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://Nachiket-2024.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/mystic-auth-docs/',
 
-  // GitHub pages deployment config.
   organizationName: 'Nachiket-2024',
   projectName: 'mystic-auth-docs',
   deploymentBranch: 'gh-pages',
@@ -48,17 +41,12 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        // Matches mystic-auth's own @fontsource-variable/inter typeface
-        // (theme/themeTokens.ts), loaded the same way here since Docusaurus
-        // doesn't share that npm dependency.
+        // Matches mystic-auth's own Inter typeface (theme/themeTokens.ts)
         href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
       },
     },
   ],
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -117,7 +105,6 @@ const config: Config = {
           'Documentation for MysticAuth: a full-stack authentication and PBAC authorization template covering architecture, auth flows, deployment, and security.',
       },
     ],
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       defaultMode: 'dark',

@@ -34,3 +34,7 @@ pnpm-debug.log*
 
 # Local-only agent instructions, not for the public repo
 /AGENTS.md
+/CLAUDE.md
+
+# Scratch input dropped in when mystic-auth updates its docs
+/docs_new

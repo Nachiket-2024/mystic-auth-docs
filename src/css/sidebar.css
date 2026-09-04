@@ -1,7 +1,5 @@
-/* Left sidebar (docs nav): container background, scroll behavior, category
-   arrows, link hover/active states, and expand/collapse animation speed. */
+/* Left sidebar (docs nav): background, category arrows, link states, collapse animation. */
 
-/* Solid surface background, no gradient (matches mystic-auth's bg.surface override) */
 .theme-doc-sidebar-container {
   background-color: #fff !important;
   background-image: none !important;
@@ -11,8 +9,7 @@
   background-color: #27272a !important;
 }
 
-/* Sidebar collapse button: solid sidebar background, no gradient */
-/* Override Docusaurus CSS variables that make it transparent */
+/* Solid sidebar collapse button (overrides Docusaurus's transparent default) */
 :root {
   --docusaurus-collapse-button-bg: #fff;
   --docusaurus-collapse-button-bg-hover: var(--ifm-color-emphasis-100);
@@ -44,7 +41,6 @@
   color: var(--ifm-color-emphasis-200) !important;
 }
 
-/* Sidebar divider */
 .sidebar-divider-container {
   padding: 0.5rem 0;
 }
@@ -89,22 +85,8 @@
   }
 }
 
-/* Category arrow: a real, separately-clickable toggle button (Docusaurus's
-   own <CollapseButton>, class .menu__caret) - not a decorative mark baked
-   into the category's own link. That distinction matters here: every
-   category in this sidebar has its own index page (an `href`), so the
-   label's click has to do double duty - navigate if you're not on that
-   page yet, toggle collapse only if you already are (Docusaurus's own
-   DocSidebarItem/Category source: "when navigating to a new category, we
-   always expand", never collapse, on that path). A previous pass here hid
-   the real button and drew a decorative arrow on the label instead - which
-   meant there was no way to close an already-open category unless you
-   happened to be on that exact category's own page: clicking its label
-   from anywhere else just re-navigated and left it open, reading as a
-   toggle that only worked one way. Keeping the real button (its own click
-   handler unconditionally toggles, independent of which page you're on)
-   fixes that, restyled to look identical to the decorative arrow it
-   replaces. */
+/* Category caret is a real toggle button, not baked into the label, so
+   clicking the label can navigate while the caret still opens/closes it. */
 .menu__link--sublist {
   display: flex;
   align-items: center;
@@ -119,11 +101,7 @@
   gap: 0.4rem;
 }
 
-/* Leaf links have no caret in front of their label the way a sibling
-   category does, so at the same nesting level their text started further
-   left than a category's - the caret (fixed at 1.75rem below) plus this
-   row's 0.4rem gap is exactly how much further right a category's own
-   label sits, so padding leaf links by that same amount lines both up. */
+/* Aligns leaf-link text with category labels (caret width + gap offset) */
 .theme-doc-sidebar-menu .menu__link:not(.menu__link--sublist) {
   padding-left: calc(
     1.75rem + 0.4rem + var(--ifm-menu-link-padding-horizontal)
@@ -133,28 +111,14 @@
 .menu__caret {
   order: -1;
   flex-shrink: 0;
-  /* Fixed box instead of Infima's content-based padding, so the space it
-     reserves is a known constant the leaf-link padding above can match. */
   width: 1.75rem;
   height: 1.75rem;
   padding: 0;
   justify-content: center;
-  /* The chevron below is drawn with currentColor, so it needs an explicit
-     color here rather than relying on inheritance - a plain <button> (even
-     with Infima's "clean-btn" reset) doesn't reliably inherit the sidebar's
-     own text-color token the way .menu__link does, so in dark mode this
-     fell back to a near-invisible default except where some other rule
-     (e.g. the active-link color) happened to reach it too. Matching
-     .menu__link's own token directly instead of leaving it to chance. */
   color: var(--ifm-menu-color);
 }
 
 [data-theme='dark'] .menu__caret {
-  /* --ifm-menu-color reads fine as body text (larger surface, sits next to
-     its own label for context) but too faint as a small 4px-thick chevron
-     glyph on its own - the same "needs more visual weight than the text
-     token it's borrowed from" issue .collapseSidebarButton already solved
-     the same way, reused here. */
   color: var(--ifm-color-emphasis-400);
 }
 
@@ -165,6 +129,12 @@
 .menu__caret::before {
   content: '' !important;
   background: none !important;
+  /* Infima's own rule applies this filter to recolor its default SVG
+     chevron icon for dark mode - since we replace that icon with a plain
+     border-drawn chevron below, the filter has nothing to do with color
+     conversion anymore and instead just desaturates whatever currentColor
+     we paint (e.g. the active gold accent rendering as flat gray). */
+  filter: none !important;
   width: auto !important;
   height: auto !important;
   border: 3px solid currentColor;
@@ -172,39 +142,21 @@
   display: inline-block;
   padding: 4px;
   transform: rotate(45deg);
-  /* Matches the submenu's own height transition below, so the arrow
-     finishes rotating right as the submenu finishes expanding/collapsing
-     instead of snapping instantly while the list is still animating. */
   transition: transform 100ms ease-out;
 }
 
-/* Docusaurus puts the collapsed modifier on the parent <li>
-   (.menu__list-item--collapsed), a great-grandparent of the caret button
-   (li > .menu__list-item-collapsible > button.menu__caret), so this still
-   needs the descendant selector rather than a direct-child one. */
 .menu__list-item--collapsed .menu__caret::before {
   transform: rotate(-45deg) !important;
 }
 
-/* Category expand/collapse animation: fast and uniform regardless of size.
-   Docusaurus's Collapsible component (theme-common) picks a per-category
-   transition duration from a Material Design formula based on that
-   category's own content height, then applies it as an inline
-   `element.style.transition` - so a tall category visibly animates slower
-   than a short one, and firing "Expand All"/"Collapse All" (src/theme/
-   DocSidebar/Desktop/index.js, which clicks every category's toggle button
-   in a loop) looks inconsistent across the sidebar. A stylesheet rule
-   marked !important overrides even inline styles, so this pins every
-   category's submenu to the same quick, smooth speed instead. */
+/* Pins category expand/collapse speed to a constant, overriding Docusaurus's
+   per-category inline duration (which otherwise varies with content height) */
 .menu__list-item-collapsible + .menu__list,
 .menu__list .menu__list {
   transition: height 100ms ease-out !important;
 }
 
-/* Sidebar link active/hover, matching mystic-auth-actual-frontend's own
-   Sidebar.tsx (SidebarNavLink): a left accent bar on the active item, a
-   one-step-darker background for active than hover, and brand-colored
-   (not just bold) active text - instead of Infima's stock thin all-over tint. */
+/* Active/hover link styling matches mystic-auth's Sidebar.tsx */
 .menu__link {
   border-left: 3px solid transparent;
   border-radius: var(--ifm-menu-link-border-radius);
@@ -218,29 +170,13 @@
   background-color: var(--sidebar-hover-bg);
 }
 
-/* The browser's own `:visited` default has higher specificity than a plain
-   `.menu__link { color: ... }` class rule, so once a sidebar link (or a
-   clickable category header, also a real <a href>) has actually been
-   clicked, its text would otherwise silently pick up the browser's visited
-   color instead of the theme's - a page you haven't visited yet and one
-   you have would render in different colors for no reason tied to active
-   state at all. Pin it back to the same token regardless of visited
-   history; the active-state color above already wins on its own via
-   !important. */
+/* Prevents the browser's :visited default from overriding theme color */
 .menu__link:visited {
   color: var(--ifm-menu-color);
 }
 
-/* Category links (anything wrapped in .menu__list-item-collapsible) are a
-   special case: Infima's own base CSS has a `!important` rule that zeroes
-   the *link's own* hover/active background for these specifically
-   (`.menu__list-item-collapsible .menu__link:hover, ...--active { background:
-   none !important; }`), higher-specificity than anything scoped to plain
-   `.menu__link`, and instead paints hover/active on the *wrapper div* via
-   `--ifm-menu-color-background-hover`. That's why a category row like
-   "Getting Started" showed no fill at all while a leaf link like "Login"
-   did - overriding that one shared variable (Infima reuses it for both the
-   wrapper's hover AND active state) is the actual point of control here. */
+/* Category rows paint hover/active via this shared Infima variable instead
+   of .menu__link's own rule (Infima zeroes that for category links) */
 .menu__list-item-collapsible {
   border-radius: var(--ifm-menu-link-border-radius);
 }
@@ -254,4 +190,8 @@
 
 .menu__link--active:hover {
   background-color: var(--sidebar-active-bg) !important;
+}
+
+.menu__link--active + .menu__caret {
+  color: var(--sidebar-active-color) !important;
 }

@@ -271,13 +271,19 @@ const sidebars: SidebarsConfig = {
             id: 'mystic_auth/project-story/timeline/README',
           },
           items: [
-            'mystic_auth/project-story/timeline/2025',
-            'mystic_auth/project-story/timeline/2026',
+            'mystic_auth/project-story/timeline/aug',
+            'mystic_auth/project-story/timeline/sep-oct',
+            'mystic_auth/project-story/timeline/feb-jul',
+            'mystic_auth/project-story/timeline/aug-sep',
           ],
         },
         {
           type: 'category',
           label: 'Structure: Then and Now',
+          link: {
+            type: 'doc',
+            id: 'mystic_auth/project-story/structure-then-and-now/folder-tree-then',
+          },
           items: [
             'mystic_auth/project-story/structure-then-and-now/folder-tree-then',
             'mystic_auth/project-story/structure-then-and-now/folder-tree-now',

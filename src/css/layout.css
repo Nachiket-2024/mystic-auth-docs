@@ -1,17 +1,10 @@
-/* Page-level chrome: canvas gradient, hero, and the solid (non-gradient)
-   navbar/footer surfaces that sit on top of it. */
+/* Page-level chrome: canvas gradient, hero, and solid navbar/footer surfaces. */
 
-/* Without this, Docusaurus's BackToTopButton can't detect native smooth-scroll
-   support and falls back to its JS rAF polyfill, which keeps calling
-   window.scrollTo() every frame until it reaches the top - fighting (and
-   briefly blocking) any scroll-down the user makes mid-animation. Native
-   smooth scrolling cancels itself the instant the user scrolls, so this
-   removes that "stuck" feeling. */
 html {
   scroll-behavior: smooth;
 }
 
-/* Page gradient: brand-tinted top → neutral bottom (matches mystic-auth canvas gradient) */
+/* Page gradient: brand-tinted top -> neutral bottom (matches mystic-auth) */
 .theme-layout-main {
   background: linear-gradient(
     to bottom,
@@ -20,60 +13,28 @@ html {
   ) !important;
 }
 
-/* Sticky footer: keep Docusaurus core's default here (.main-wrapper flex-grow,
-   #__docusaurus min-height: 100%) rather than letting the wrapper size to
-   its own content. A previous pass here removed it because on the short
-   homepage (hero + 3 cards) the grown wrapper read as a big dead gap before
-   the footer - but the alternative is worse: since a browser window always
-   shows at least its own height no matter how short the page content is,
-   NOT growing the wrapper just relocates that same leftover space to
-   *after* the footer instead, where it reads as an oversized footer rather
-   than a gap in the middle. Pinning the footer to the viewport bottom is
-   the one option where that leftover space can't land somewhere confusing:
-   there's no "after the footer" left for it to occupy. */
-
+/* Sticky footer: lets #__docusaurus grow to fill the viewport so the
+   footer always sits at the bottom, even on short pages. */
 body {
   background: transparent !important;
 }
 
-/* The root element's background paints the whole canvas (viewport), not just
-   its own box, so on any page taller than its own content (before the
-   sticky footer above kicks in on load, or during overscroll/bounce)
-   something can still show past the footer. Infima's own `html` background
-   is --ifm-background-color (the light-mode page cream), which doesn't
-   match the footer's always-dark brand-canvas above it. Matching it to the
-   footer's own color instead makes that sliver look like a continuation of
-   the footer rather than a mismatched gap. */
+/* Matches the footer's color so any sliver past it during overscroll
+   reads as a continuation of the footer, not a mismatched gap. */
 html {
   background-color: var(--brand-canvas-dark) !important;
 }
 
-/* html[data-theme='dark'], not `[data-theme='dark'] html` - Docusaurus sets
-   data-theme on the <html> tag itself, not on an ancestor of it, so a
-   descendant-combinator selector here can never match (html has no
-   ancestors in the document) and this override was silently never applying,
-   leaving the light-mode brown as the only effective rule regardless of
-   theme. */
 html[data-theme='dark'] {
   background-color: #09090b !important;
 }
 
-/* Hero banner: transparent, not its own copy of the gradient. The hero sits
-   inside .theme-layout-main, which already paints the brand.100 -> gray.100
-   gradient across the FULL page height (matching mystic-auth's own
-   single-gradient LandingPage.tsx) - painting that same gradient a second
-   time on just the hero's own (much shorter) box made it repeat: the hero
-   faded from cream to gray within ~300px, then the section right below it
-   jumped back to cream and faded again on its own, independent fade. */
+/* Transparent - the full-page gradient above already covers the hero */
 .hero--primary {
   background: transparent !important;
 }
 
-/* Navbar: solid surface background, no gradient (matches mystic-auth's bg.surface override).
-   A touch darker than stock zinc-100 in light mode, since that read as
-   barely distinguishable from the page background right below it - plus a
-   thin bottom border, since color contrast alone is a fragile way to
-   separate navbar from page (depends on exactly what's rendered under it). */
+/* Navbar: solid surface, no gradient (matches mystic-auth) */
 .navbar {
   background-color: #ececee !important;
   background-image: none !important;
@@ -82,45 +43,16 @@ html[data-theme='dark'] {
 
 [data-theme='dark'] .navbar {
   background-color: #18181b !important;
-  /* The near-black navbar reads clearly against the dark brand-canvas page
-     right at the top, so a border seemed unnecessary there - but the sticky
-     navbar stays pinned as you scroll, and further down the page the
-     gradient fades to the exact same --ifm-background-color-secondary
-     (#18181b) the navbar itself uses, so the two become indistinguishable.
-     A border makes the edge visible regardless of what's scrolled beneath
-     it, the same reasoning as the light-mode border above (and the dark
-     footer border below) - just a dark-mode-appropriate color instead of
-     light mode's zinc-300, which read wrong against black. */
   border-bottom: 1px solid var(--ifm-color-emphasis-500);
 }
 
-/* Footer: solid surface background, no gradient. Uses mystic-auth's own
-   dark-canvas brown (themeTokens.ts's dark bg.canvasFrom, also tokens.css's
-   dark-mode --ifm-background-color) instead of flat black, so the footer
-   reads as a brand-dark band rather than a jarring generic black bar against
-   the light cream page. */
+/* Footer: solid brand-dark surface, no gradient */
 footer {
   background-color: var(--brand-canvas-dark) !important;
   background-image: none !important;
 }
 
-/* In dark mode specifically, that same brand-canvas-dark brown is also the
-   *top* stop of .theme-layout-main's own gradient (its --ifm-background-color
-   there resolves to this same variable), which fades down to a near-black
-   --ifm-background-color-secondary by the time it reaches the footer. Using
-   the identical brown for the footer then read as the page "restarting" - a
-   sudden jump back to the lighter top color right where it should read as
-   the page's end.
-   Matching the footer to that same near-black gradient-end color exactly
-   swung too far the other way though: with nothing to tell them apart, the
-   footer just blended straight into the content above it - not visibly a
-   footer at all. zinc-950, one step darker than the gradient's own darkest
-   point, plus a border to give it a definite edge regardless of exact
-   color contrast (the same fix already applied to the navbar above, for
-   the same reason: color alone is a fragile way to separate two surfaces). */
 [data-theme='dark'] footer {
   background-color: #09090b !important;
-  /* emphasis-500, not -300: sidebar.css's .collapseSidebarButton hit the same
-     "-300 reads wrong in dark mode" issue and settled on -500 there too. */
   border-top: 1px solid var(--ifm-color-emphasis-500);
 }

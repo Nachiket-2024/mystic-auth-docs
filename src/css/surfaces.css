@@ -1,5 +1,4 @@
-/* Card surface (matches mystic-auth's ui/Card.tsx: density.card
-   radius/shadow/border, density.cardPadding) - shared by the homepage
+/* Card surface (matches mystic-auth's Card.tsx) - shared by the homepage
    feature grid, admonitions, and code blocks below. */
 .card-surface {
   background: var(--card-bg);
@@ -12,15 +11,14 @@
     box-shadow 0.15s ease;
 }
 
-/* Admonitions (:::note/:::tip/etc.) - route through the same elevation
-   language as every other surface instead of Infima's flat default. */
+/* Admonitions (:::note/:::tip/etc.) use the same elevation as other surfaces */
 .theme-admonition {
   border-radius: 12px !important;
   box-shadow: var(--card-shadow);
   border-width: 1px 1px 1px 4px !important;
 }
 
-/* Code blocks - same rounded/elevated treatment as Card surfaces. */
+/* Code blocks: same rounded/elevated treatment as card surfaces */
 div[class*='codeBlockContainer'] {
   border-radius: 12px !important;
   box-shadow: var(--card-shadow);

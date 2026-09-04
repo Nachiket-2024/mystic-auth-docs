@@ -1,11 +1,7 @@
-/* Mermaid diagrams: centering, and restyling the generic gray "neutral"
-   node/line colors to mystic-auth's own amber brand palette (light + dark). */
+/* Mermaid diagrams: centering, and mystic-auth's amber brand palette. */
 
-/* Center-align Mermaid diagrams. The actual rendered container is
-   `.docusaurus-mermaid-container` (theme-mermaid's own class) - there is no
-   `.mermaid` element in the DOM at all, so every rule below targets that
-   real class (kept alongside `.mermaid` as a harmless fallback in case a
-   future theme-mermaid version renames it back). */
+/* .docusaurus-mermaid-container is the real rendered class; .mermaid kept
+   as a fallback in case a future theme-mermaid version renames it. */
 .docusaurus-mermaid-container,
 .mermaid {
   display: flex;
@@ -19,11 +15,6 @@
   height: auto;
 }
 
-/* Center the text *inside* each node's label, not just the diagram as a
-   whole - a multi-line label (e.g. "\n" in flowchart node text) can render
-   via a <p>/<span> inside a foreignObject in some mermaid diagram types,
-   which defaults to left-aligned text and looks off-center in a
-   single-column flow (one box stacked above another). */
 .docusaurus-mermaid-container .nodeLabel,
 .docusaurus-mermaid-container .edgeLabel,
 .docusaurus-mermaid-container .label foreignObject div,
@@ -65,7 +56,7 @@
   background-color: var(--brand-50) !important;
 }
 
-/* Sequence diagrams: actor boxes, activation bars, and lifelines */
+/* Sequence diagrams: actor boxes, activation bars, lifelines */
 .docusaurus-mermaid-container .actor {
   fill: var(--brand-100) !important;
   stroke: var(--brand-600) !important;
@@ -90,14 +81,6 @@
   stroke: var(--brand-600) !important;
 }
 
-/* Wrapped edge labels (e.g. a long "miss, fetch from Postgres, then cache
-   60s" label on an arrow) get an extra `.labelBkg` div with its own
-   semi-transparent white inline background, layered on TOP of the
-   `.edgeLabel` background above - that translucent white is what made
-   these look like a mismatched washed-out sticker against the cream page,
-   while a short label with no `.labelBkg` (e.g. "hit") had no box at all.
-   Overriding it to the same opaque brand-50 as `.edgeLabel` makes both
-   consistent. */
 .docusaurus-mermaid-container .labelBkg {
   background-color: var(--brand-50) !important;
 }

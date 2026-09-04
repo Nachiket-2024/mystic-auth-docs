@@ -16,6 +16,12 @@ Read the docs in this order if you are new to the repository:
 
 ---
 
+## Documentation conventions
+
+- [Documentation Style](https://github.com/Nachiket-2024/mystic-auth/blob/main/docs/documentation-style.md): page structure, numbered procedure style, Mermaid label rules, code reference conventions, and tutorial section format.
+
+---
+
 ## Architecture
 
 - [System Overview](architecture/system-overview.md): whole-stack component diagram, why the stack is split this way, request lifecycle

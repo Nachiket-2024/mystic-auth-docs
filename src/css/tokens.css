@@ -1,17 +1,6 @@
-/* ─── Brand color: single source of truth ───────────────────────────────
-   This is the ONE place the site's brand color is defined. Every other
-   amber/brown value below (buttons, navbar/hero text, sidebar accents,
-   footer, mermaid diagrams, focus rings...) references one of these
-   variables instead of its own hardcoded hex, so retinting the whole site
-   later is a matter of editing this block alone.
-
-   Matches mystic-auth-actual-frontend's own default brand scale exactly
-   (generateBrandScale.ts's LIGHTNESS_LADDER applied to its default amber
-   hue - see theme/generateBrandScale.ts) - this scale IS the Tailwind
-   amber scale the app ships as its out-of-the-box brand color. --brand-950
-   and --brand-canvas-dark/--brand-surface-dark extend past the app's
-   50-900 scale for this site's own needs (mermaid text contrast, dark-mode
-   page background) and aren't meant to track the app's scale 1:1. */
+/* Brand color: single source of truth. Every other amber/brown value in
+   this site references these variables, so retinting is a one-block edit.
+   Matches mystic-auth's default brand (amber) scale. */
 :root {
   --brand-50: #fffbeb;
   --brand-100: #fef3c7;
@@ -24,14 +13,11 @@
   --brand-800: #92400e;
   --brand-900: #78350f;
   --brand-950: #451a03;
-  /* Dark-mode page canvas (matches mystic-auth's dark bg.canvasFrom) and a
-     one-step-lighter surface for elements that need to stand out against
-     that canvas (mermaid node/actor fills in dark mode). */
+  /* Dark-mode page canvas + a lighter surface for standout elements */
   --brand-canvas-dark: #3a2217;
   --brand-surface-dark: #52341f;
 }
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: var(--brand-600);
   --ifm-color-primary-dark: var(--brand-700);
@@ -47,25 +33,20 @@
     transparent
   );
 
-  /* Matches mystic-auth's own Inter Variable typeface (theme/themeTokens.ts),
-     loaded via Google Fonts in docusaurus.config.ts's headTags since the
-     @fontsource-variable npm package isn't part of this project. */
+  /* Matches mystic-auth's Inter Variable typeface, loaded via Google Fonts */
   --ifm-font-family-base:
     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-heading-font-family:
     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-heading-font-weight: 700;
-  /* Matches themeStyles.ts's heading recipe (letterSpacing: -0.01em). */
   --ifm-heading-letter-spacing: -0.01em;
-  /* Matches themeStyles.ts's globalCss body lineHeight (1.55). */
   --ifm-line-height-base: 1.55;
 
-  /* Canvas gradient (matches mystic-auth: brand.100 → gray.100) */
+  /* Canvas gradient: brand-100 -> gray-100 */
   --ifm-background-color: var(--brand-100);
   --ifm-background-color-secondary: #f4f4f5;
 
-  /* Layered elevation, matches mystic-auth's Card.tsx density.card shadow
-     token (theme/themeTokens.ts) instead of a single flat drop-shadow. */
+  /* Layered elevation, matches mystic-auth's Card density token */
   --card-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
     0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 16px 32px -20px rgba(15, 23, 42, 0.25);
@@ -73,41 +54,23 @@
   --card-bg: #ffffff;
   --focus-ring: 0 0 0 3px color-mix(in srgb, var(--brand-500) 45%, transparent);
 
-  /* Sidebar active/hover, matching mystic-auth-actual-frontend's own
-     Sidebar.tsx (SidebarNavLink): brand.200 active / brand.100 hover
-     background, brand.700 active text, in light mode. */
+  /* Sidebar active/hover, matching mystic-auth's Sidebar.tsx (light mode) */
   --sidebar-active-bg: var(--brand-200);
   --sidebar-hover-bg: var(--brand-100);
   --sidebar-active-color: var(--brand-700);
-  /* Category rows (see sidebar.css's .menu__list-item-collapsible comment)
-     paint hover/active through this Infima variable instead of our own
-     .menu__link--active rule. */
   --ifm-menu-color-background-hover: var(--sidebar-hover-bg);
 
-  /* Infima's stock light-mode table border (#dadde1) and menu/TOC text
-     color (#606770/#525860) are both too pale against this site's white
-     sidebar/cream page - #dadde1 in particular reads as barely-there next
-     to the much more visible dark-mode default (#606770). Table borders now
-     reuse --card-border (already the site's one neutral border color);
-     menu/TOC text drops to zinc-700, matching the zinc neutral scale
-     --card-border/--card-bg already use elsewhere in this file, rather than
-     introducing yet another one-off gray. */
+  /* Infima's stock borders/menu-text are too pale on this site's surfaces */
   --ifm-table-border-color: var(--card-border);
   --ifm-menu-color: #3f3f46;
   --ifm-toc-link-color: #3f3f46;
-  /* Infima's stock TOC border (#e6e7e8) is the same too-pale gray as the
-     table border was - reuse --card-border so the "In this page" rail reads
-     with the same weight as the (already-fixed) table lines next to it. */
   --ifm-toc-border-color: var(--card-border);
 
-  /* Matches mystic-auth-actual-frontend's own fg.muted semantic token
-     (themeSemanticTokens.ts: gray.600 light / gray.400 dark) - Chakra's
-     stock gray scale, used there for the landing page's hero subtitle and
-     highlight-card descriptions, reused here for the same two spots. */
+  /* Matches mystic-auth's fg.muted semantic token (gray.600 light) */
   --fg-muted: #4b5563;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode: lighter palette for readability */
 [data-theme='dark'] {
   --ifm-color-primary: var(--brand-500);
   --ifm-color-primary-dark: var(--brand-600);
@@ -122,12 +85,11 @@
     transparent
   );
 
-  /* Canvas gradient (matches mystic-auth: #3a2217 → gray.900) */
+  /* Canvas gradient: #3a2217 -> gray-900 */
   --ifm-background-color: var(--brand-canvas-dark);
   --ifm-background-color-secondary: #18181b;
 
-  /* Dark-mode elevation: shallower ambient falloff + white-alpha sheen line
-     (matches themeTokens.ts's shadows.density.card._dark exactly). */
+  /* Dark-mode elevation: shallower falloff + white-alpha sheen line */
   --card-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.4),
     0 16px 32px -20px rgba(0, 0, 0, 0.6);
@@ -135,16 +97,7 @@
   --card-bg: #27272a;
   --focus-ring: 0 0 0 3px color-mix(in srgb, var(--brand-300) 45%, transparent);
 
-  /* Sidebar active/hover, matching mystic-auth-actual-frontend's Sidebar.tsx
-     dark-mode pairing exactly (its own `isDark` branch): brand.800 active /
-     brand.900 hover background, brand.fg (brand.300) active text - the
-     scale runs the opposite direction in dark mode (a lower number reads
-     brighter). A prior pass here used --brand-canvas-dark (#3a2217) for the
-     hover background instead of brand.900 (#78350f) - almost the same
-     darkness as the sidebar's own background, so hovering barely changed
-     anything and text looked like it "disappeared." brand.900 is
-     noticeably lighter/warmer than the sidebar surface, so hover actually
-     reads as a highlight now. */
+  /* Sidebar active/hover, matching mystic-auth's dark-mode pairing */
   --sidebar-active-bg: var(--brand-800);
   --sidebar-hover-bg: var(--brand-900);
   --sidebar-active-color: var(--brand-300);
@@ -152,14 +105,6 @@
 
   --ifm-table-border-color: var(--card-border);
   --ifm-toc-border-color: var(--card-border);
-
-  /* The light-mode --ifm-toc-link-color and --ifm-menu-color (#3f3f46, a
-     dark zinc) are set once in the shared :root block above and were never
-     re-pointed for dark mode, so both the "In this page" rail AND the left
-     sidebar's ordinary (non-active) link text inherited that same
-     near-black color straight onto this dark surface - unreadable.
-     Lighten both to the zinc-300 scale --sidebar-active-color already uses
-     in dark mode. */
   --ifm-toc-link-color: #d4d4d8;
   --ifm-menu-color: #d4d4d8;
 

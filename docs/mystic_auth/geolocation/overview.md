@@ -22,11 +22,11 @@ It's gated behind the `geoip` Compose profile, so it never starts (and never res
 
 ---
 
-1. Create a free MaxMind account: [maxmind.com/en/geolite2/signup](https://www.maxmind.com/en/geolite2/signup) (email + password, no payment info, no trial period; GeoLite2 is free). Verify your email via the link MaxMind sends before the account is usable.
+1. Create a free MaxMind account: [https://www.maxmind.com/en/geolite2/signup](https://www.maxmind.com/en/geolite2/signup) (email + password, no payment info, no trial period; GeoLite2 is free). Verify your email via the link MaxMind sends before the account is usable.
 
 ---
 
-2. Log in at [maxmind.com/en/account/login](https://www.maxmind.com/en/account/login). The account dashboard shows a numeric **Account ID**, that's `GEOIPUPDATE_ACCOUNT_ID`.
+2. Log in at [https://www.maxmind.com/en/account/login](https://www.maxmind.com/en/account/login). The account dashboard shows a numeric **Account ID**, that's `GEOIPUPDATE_ACCOUNT_ID`.
 
 ---
 

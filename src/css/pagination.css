@@ -1,15 +1,6 @@
 /* Previous/Next pagination nav (bottom of every doc page). Border/label
-   colors match the homepage's outline CTA ("Architecture Overview") -
-   transparent fill, brand-colored border and text off the same step
-   (brand-600/brand-300), same reasoning as that button's own fix: a
-   border a step darker than its own text read as a mismatch.
-   Hover is deliberately NOT that outline button's own full solid-color
-   fill though - across a wide block that read as too intense, CTA-level
-   brightness for what's actually a navigation control. Using the sidebar's
-   own soft-tint hover instead (--sidebar-hover-bg) - the convention this
-   site already uses for "hovering a nav link", as opposed to "hovering a
-   call-to-action button" - so pagination gets the same restraint sidebar
-   links do, matching what it actually is. */
+   colors match the homepage's outline CTA; hover uses the sidebar's own
+   soft-tint (not the CTA's solid fill, which reads too intense here). */
 
 .pagination-nav__link {
   border: 2px solid var(--brand-600);

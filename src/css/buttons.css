@@ -1,7 +1,6 @@
-/* Button styling (matches mystic-auth's BRAND_SOLID/OUTLINE_HOVER_PROPS),
+/* Button styling (matches mystic-auth's brand solid/outline props),
    plus a shared visible focus ring for keyboard/screen-reader users. */
 
-/* Shared: fast hover transition, consistent border-radius */
 .button {
   transition:
     background-color 0.1s ease,
@@ -11,7 +10,7 @@
   font-weight: 600 !important;
 }
 
-/* Solid primary button: hover darkens (matches BRAND_SOLID_HOVER_PROPS → brand.700) */
+/* Solid primary: hover darkens to brand-700 */
 .button--primary {
   background-color: var(--ifm-color-primary) !important;
   border-color: var(--ifm-color-primary) !important;
@@ -30,7 +29,7 @@
   color: #1a1a1a !important;
 }
 
-/* Secondary button: solid fill, hover darkens (exclude sidebar collapse button) */
+/* Secondary: solid fill, hover darkens (excludes the sidebar collapse button) */
 .button--secondary:not([class*='collapseSidebarButton']) {
   background-color: var(--ifm-color-primary) !important;
   border-color: var(--ifm-color-primary) !important;
@@ -50,19 +49,9 @@
   color: #1a1a1a !important;
 }
 
-/* Outline button: fills brand.500 on hover (exclude sidebar collapse button).
-   Sets the full `border` shorthand (style+width+color together), not just
-   `border-color`/`border-width` separately - this button ends up with no
-   `border-style` from Infima at all in this Docusaurus version, so setting
-   only width/color left the border computing to "0px none" (invisible)
-   even with the width declared. */
+/* Outline: fills brand-500 on hover. Full `border` shorthand used since
+   Infima gives this button no border-style, only width/color. */
 .button--outline:not([class*='collapseSidebarButton']) {
-  /* Width matches mystic-auth-actual-frontend's own LandingPage.tsx outline
-     CTAs (borderWidth="2px" - "next to the solid button, a 1px outline read
-     as barely there"). Color diverges from it though: the real app's
-     BRAND_OUTLINE_HOVER_PROPS sets border and text off two different steps
-     (borderColor.800, text.600), which reads as a mismatch here - visibly
-     darker border than text. Same step for both instead. */
   border: 2px solid var(--brand-600) !important;
   background-color: transparent !important;
   color: var(--brand-600) !important;
@@ -75,8 +64,6 @@
 }
 
 [data-theme='dark'] .button--outline:not([class*='collapseSidebarButton']) {
-  /* Same step for border and text here too, for the same reason as the
-     light-mode rule above. */
   border-color: var(--brand-300) !important;
   color: var(--brand-300) !important;
 }
@@ -88,9 +75,7 @@
   color: #1a1a1a !important;
 }
 
-/* Visible keyboard focus on every interactive element (matches mystic-auth's
-   brand.focusRing token) - Infima ships no focus-visible styling of its own,
-   which fails WCAG 2.4.7 for keyboard/screen-reader users. */
+/* Visible keyboard focus ring (Infima ships none; needed for WCAG 2.4.7) */
 .button:focus-visible,
 .navbar__link:focus-visible,
 .menu__link:focus-visible,

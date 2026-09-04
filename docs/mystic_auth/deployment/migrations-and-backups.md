@@ -75,7 +75,7 @@ Known limitations:
 4. There is no built-in restore verification.
 5. There is no alert when scheduled backup fails.
 
-For production data, copy backups off the host and periodically restore the latest dump into a scratch database. See [Known Issues](../concerns/README.md#database-backups-are-scheduled-but-not-production-grade).
+For production data, copy backups off the host and periodically restore the latest dump into a scratch database. See [Known Issues](../concerns/README.md#database-backups-are-scheduled-and-integrity-checked-but-not-shipped-off-host-or-continuously-archived).
 
 ---
 

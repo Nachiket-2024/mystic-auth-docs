@@ -1,4 +1,4 @@
-﻿# Glossary: Authorization (PBAC)
+# Glossary: Authorization (PBAC)
 
 ---
 

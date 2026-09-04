@@ -1,5 +1,4 @@
-/* Right sidebar ("In this page" table of contents): surface, sizing, and
-   a numbered-list treatment instead of Infima's plain bullet-less links. */
+/* Right sidebar ("In this page" TOC): surface, sizing, numbered list style. */
 
 .theme-doc-toc-desktop {
   background-color: transparent !important;
@@ -17,7 +16,7 @@
   font-size: 0.95rem;
 }
 
-/* Numbered Table of Contents */
+/* Numbered table of contents */
 .theme-doc-toc-desktop .table-of-contents ul {
   counter-reset: toc-counter;
 }
@@ -35,14 +34,7 @@
   display: inline-block;
 }
 
-/* Docusaurus's scroll-spy only marks a heading active once it's been
-   scrolled past a threshold near the top of the viewport - on page load,
-   scrolled to top, the intro paragraph is still what's in view (nothing
-   has crossed that line yet), so nothing in the TOC is highlighted at all.
-   Since there's no earlier heading a reader could actually be "at" in that
-   state, defaulting to the first entry reads as correct rather than
-   broken/inert - and this rule stops applying the instant scroll-spy marks
-   a real active link, via :has(). */
+/* Highlights the first entry until scroll-spy marks a real active heading */
 .theme-doc-toc-desktop
   ul.table-of-contents:not(:has(.table-of-contents__link--active))
   > li:first-child
