@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md) or [Authentication Glossary](../glossary/authentication.md)._
+
 A decision log capturing the _why_ behind non-obvious security choices in this codebase, gathered in one place instead of scattered across code comments. Each entry links to where the actual implementation lives. Split by category into three pages, indexed below.
 
 ---
@@ -44,7 +46,6 @@ See [Security Decisions: Product](decisions-product.md) for the full entries.
 
 - [Account lifecycle: soft delete by default](decisions-product.md#account-lifecycle-soft-delete-by-default): reversible by default, purge gated by its own permission, grace-period auto-purge.
 - [Why MFA is not enabled](decisions-product.md#why-mfa-is-not-enabled): an intentionally deferred scope boundary, with the hooks already in place.
-- [Intentionally deferred features](decisions-product.md#intentionally-deferred-features): per-endpoint rate limits, non-SMTP email providers, deploy automation.
-- [Known accepted gaps / follow-ups](../concerns/README.md): no automated off-host database-backup archiving.
+- [Intentionally deferred features](decisions-product.md#intentionally-deferred-features): non-SMTP email providers, deploy automation. See [Known Issues](../concerns/README.md) for the current backlog of accepted gaps and follow-ups.
 
 ---

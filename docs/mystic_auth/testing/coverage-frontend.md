@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Testing Glossary](../glossary/testing.md)._
+
 This page gives an overview of what `tests/frontend/` actually checks,
 across both unit and integration tests. See [Testing Overview](overview.md)
 for how to run the suite.

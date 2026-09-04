@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Authorization Glossary](../glossary/authorization.md)._
+
 ## Where to define a new action
 
 Add it to the `Permission` enum in `backend/mystic_auth/authorization/permissions.py`:

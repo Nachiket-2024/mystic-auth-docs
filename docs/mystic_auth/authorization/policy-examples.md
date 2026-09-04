@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Authorization Glossary](../glossary/authorization.md)._
+
 A policy's fields (see `authorization/models/policy_model.py` / `authorization/schemas/policy_schema.py`):
 
 | Field           | Type             | Notes                                                                                                  |

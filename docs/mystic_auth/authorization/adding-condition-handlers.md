@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Authorization Glossary](../glossary/authorization.md)._
+
 The condition framework is modular by design:
 
 ```mermaid

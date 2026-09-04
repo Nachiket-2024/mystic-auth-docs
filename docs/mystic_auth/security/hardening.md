@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md) or [Authentication Glossary](../glossary/authentication.md)._
+
 Consolidates the concrete hardening mechanisms in the codebase: rate limiting, lockout, response headers, CORS, and cookie flags. For the _why_ behind non-obvious choices, see [Security Decisions](decisions.md). Split by category into three pages, indexed below.
 
 ---

@@ -39,7 +39,7 @@ Then create the reserved system superuser (one-time, CLI-only):
 docker compose -f docker/compose/docker-compose.dev.yml exec -it backend python -m mystic_auth.scripts.create_system_user
 ```
 
-See root [`README.md`](https://github.com/Nachiket-2024/mystic-auth/blob/main/README.md#first-time-setup-creating-the-system-superuser) for the prompts.
+See [System Superuser: Bootstrapping and Promotion](../authentication/system-superuser/README.md) for the prompts.
 
 ---
 

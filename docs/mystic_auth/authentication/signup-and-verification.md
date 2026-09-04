@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Authentication & Sessions Glossary](../glossary/authentication.md)._
+
 Split out of [Authentication Flows](overview.md) so the account-creation path (signup, first
 verification email, resend, redemption) has room for its own diagram instead of being a stepwise
 list next to every other flow.

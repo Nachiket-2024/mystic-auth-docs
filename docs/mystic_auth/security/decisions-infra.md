@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md) or [Authentication Glossary](../glossary/authentication.md)._
+
 See [Security Decisions](decisions.md) for the full index, including auth/session and product
 decisions. This page covers the _why_ behind infrastructure choices: image builds, settings
 parsing, error monitoring, and the background task queue.

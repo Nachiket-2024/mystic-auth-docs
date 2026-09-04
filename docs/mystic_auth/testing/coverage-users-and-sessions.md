@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Testing Glossary](../glossary/testing.md)._
+
 This page walks through what the test suite checks for user CRUD and admin
 management, account deletion and purge, the manage-sessions dashboard,
 session geolocation, and real-time session events. See

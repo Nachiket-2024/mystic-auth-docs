@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md) or [Authentication Glossary](../glossary/authentication.md)._
+
 See [Security Decisions](decisions.md) for the full index, including infrastructure and product
 decisions. This page covers the _why_ behind authentication, session, and rate-limiting choices.
 

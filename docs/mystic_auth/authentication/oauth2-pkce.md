@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Authentication & Sessions Glossary](../glossary/authentication.md)._
+
 ## Purpose
 
 Lets a user authenticate with their Google account instead of (or in addition to) a password, while defending against authorization-code interception (PKCE), CSRF/session fixation (`state`), and a specific pre-registration account-hijacking scenario unique to mixing password and OAuth2 signup on the same email.

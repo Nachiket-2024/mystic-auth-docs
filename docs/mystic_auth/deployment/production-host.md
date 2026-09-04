@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md)._
+
 Host-level requirements and runtime behavior shared by production-shaped deployments.
 
 ---

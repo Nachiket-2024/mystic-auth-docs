@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md) or [Authentication Glossary](../glossary/authentication.md)._
+
 See [Security Decisions](decisions.md) for the full index, including auth/session and infrastructure
 decisions. This page covers the _why_ behind product-level scope decisions: account lifecycle, MFA,
 deferred features, and known gaps.

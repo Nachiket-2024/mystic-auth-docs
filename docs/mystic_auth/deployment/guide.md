@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md)._
+
 Shared deployment index for dev, local-prod, and prod. Use this page to choose a mode, then follow the mode-specific tutorial.
 
 ---

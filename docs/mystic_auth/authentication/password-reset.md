@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Authentication & Sessions Glossary](../glossary/authentication.md)._
+
 Split out of [Authentication Flows](overview.md). Covers the "forgot password" self-service reset
 flow, plus the two places a password can otherwise change (self-service and admin), which share the
 same session-revocation and current-password rules for the same reasons.

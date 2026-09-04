@@ -23,12 +23,6 @@
   color: #fff !important;
 }
 
-[data-theme='dark'] .button--primary:hover {
-  background-color: var(--brand-300) !important;
-  border-color: var(--brand-300) !important;
-  color: #1a1a1a !important;
-}
-
 /* Secondary: solid fill, hover darkens (excludes the sidebar collapse button) */
 .button--secondary:not([class*='collapseSidebarButton']) {
   background-color: var(--ifm-color-primary) !important;
@@ -40,13 +34,6 @@
   background-color: var(--brand-700) !important;
   border-color: var(--brand-700) !important;
   color: #fff !important;
-}
-
-[data-theme='dark']
-  .button--secondary:not([class*='collapseSidebarButton']):hover {
-  background-color: var(--brand-300) !important;
-  border-color: var(--brand-300) !important;
-  color: #1a1a1a !important;
 }
 
 /* Outline: fills brand-500 on hover. Full `border` shorthand used since
@@ -68,11 +55,14 @@
   color: var(--brand-300) !important;
 }
 
+/* Same hover as light mode (no dark override in the source component) -
+   restated here since it'd otherwise lose to the dark resting rule above,
+   which matches during hover too and has equal selector specificity. */
 [data-theme='dark']
   .button--outline:not([class*='collapseSidebarButton']):hover {
-  background-color: var(--brand-300) !important;
-  border-color: var(--brand-300) !important;
-  color: #1a1a1a !important;
+  background-color: var(--brand-500) !important;
+  border-color: var(--brand-500) !important;
+  color: #fff !important;
 }
 
 /* Visible keyboard focus ring (Infima ships none; needed for WCAG 2.4.7) */

@@ -2,6 +2,8 @@
 
 ---
 
+_New to a term here? See the [Testing Glossary](../glossary/testing.md)._
+
 The browser E2E suite uses Playwright through `frontend/playwright.config.ts`.
 Tests live under `tests/frontend/app/e2e/` and
 `tests/frontend/mystic_auth/e2e/`, not inside `frontend/`, so they match the

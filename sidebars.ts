@@ -169,11 +169,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
-      id: 'mystic_auth/configuration/environment',
-      label: 'Configuration',
-    },
-    {
-      type: 'doc',
       id: 'mystic_auth/database/design',
       label: 'Database',
     },
@@ -221,6 +216,24 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'mystic_auth/cicd/overview',
+      ],
+    },
+    {
+      type: 'doc',
+      id: 'mystic_auth/documentation-style',
+      label: 'Documentation Style',
+    },
+    {
+      type: 'category',
+      label: 'Environment',
+      link: {
+        type: 'doc',
+        id: 'mystic_auth/environment/README',
+      },
+      items: [
+        'mystic_auth/environment/backend',
+        'mystic_auth/environment/frontend',
+        'mystic_auth/environment/compose',
       ],
     },
     {
