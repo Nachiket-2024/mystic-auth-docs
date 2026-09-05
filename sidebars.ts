@@ -284,10 +284,11 @@ const sidebars: SidebarsConfig = {
             id: 'mystic_auth/project-story/timeline/README',
           },
           items: [
-            'mystic_auth/project-story/timeline/aug',
+            'mystic_auth/project-story/timeline/2025-aug',
             'mystic_auth/project-story/timeline/sep-oct',
             'mystic_auth/project-story/timeline/feb-jul',
-            'mystic_auth/project-story/timeline/aug-sep',
+            'mystic_auth/project-story/timeline/2026-aug',
+            'mystic_auth/project-story/timeline/sep',
           ],
         },
         {
