@@ -11,7 +11,7 @@ the differences.
 Both trees list only files and folders that are actually committed to the repository (no
 `__pycache__`, `node_modules`, build output, coverage reports, or anything else covered by
 `.gitignore`). The "then" tree is the real commit tree at
-[`946e384`](https://github.com/Nachiket-2024/mystic-auth/commit/946e384), the last commit of the manual, ChatGPT-assisted era, on 14 April, 2026. The
+[`946e384`](../../../..), the last commit of the manual, ChatGPT-assisted era, on 14 April, 2026. The
 "now" tree reflects the repository as it stands today.
 
 ---
