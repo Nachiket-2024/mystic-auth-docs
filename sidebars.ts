@@ -26,6 +26,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'mystic_auth/template-usage/syncing-upstream/rebuild-and-push',
             'mystic_auth/template-usage/syncing-upstream/troubleshooting',
+            'mystic_auth/template-usage/syncing-upstream/agent-prompt',
           ],
         },
         'mystic_auth/template-usage/worked-example',
@@ -234,6 +235,7 @@ const sidebars: SidebarsConfig = {
         'mystic_auth/environment/backend',
         'mystic_auth/environment/frontend',
         'mystic_auth/environment/compose',
+        'mystic_auth/environment/tooling',
       ],
     },
     {
