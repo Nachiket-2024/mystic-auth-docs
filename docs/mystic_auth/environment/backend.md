@@ -5,7 +5,7 @@
 _New to a term here? See the [Infrastructure Glossary](../glossary/infrastructure.md)._
 
 These fields are declared in `backend/mystic_auth/core/settings.py`. Pydantic
-loads them from process environment or `env/.env`.
+loads them from process environment or `env/mystic_auth/.env`.
 
 | Variable                              | Type                          | Required                                    | Actual use                                                                                                                                                                                                                                                       |
 | ------------------------------------- | ----------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

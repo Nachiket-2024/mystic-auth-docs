@@ -15,7 +15,11 @@ const sidebars: SidebarsConfig = {
         id: 'mystic_auth/template-usage/overview',
       },
       items: [
+        'mystic_auth/template-usage/quickstart',
+        'mystic_auth/template-usage/ownership-split',
+        'mystic_auth/template-usage/customization',
         'mystic_auth/template-usage/frontend-customization',
+        'mystic_auth/template-usage/cheatsheet',
         {
           type: 'category',
           label: 'Syncing Upstream',
