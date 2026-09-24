@@ -18,7 +18,7 @@ Authentication looks small from the outside: a login endpoint, a logout endpoint
 
 - refresh token rotation and reuse detection,
 - session storage decisions,
-- Redis-based session and token management,
+- Valkey-based session and token management,
 - rate limiting,
 - brute-force protection,
 - cookie security,
@@ -84,7 +84,7 @@ backend/
     core/
     database/
     logging/
-    redis/
+    valkey/
     scripts/
     taskiq_tasks/
     user_crud/

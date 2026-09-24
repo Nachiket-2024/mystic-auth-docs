@@ -5,7 +5,13 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import { KeyRound, ShieldCheck, Server, type LucideIcon } from 'lucide-react';
+import {
+  KeyRound,
+  ScrollText,
+  Server,
+  ShieldCheck,
+  type LucideIcon,
+} from 'lucide-react';
 
 import styles from './index.module.css';
 
@@ -33,9 +39,9 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--outline button--lg"
-            to="/docs/mystic_auth/architecture/system-overview"
+            to="/docs/mystic_auth/authentication/overview"
           >
-            Architecture Overview
+            Authentication Overview
           </Link>
         </div>
       </div>
@@ -66,25 +72,30 @@ const features: Feature[] = [
     to: '/docs/mystic_auth/authorization/architecture',
   },
   {
+    icon: ScrollText,
+    title: 'Auditability',
+    description:
+      'Security events and authorization decisions are recorded for review, troubleshooting, and operational confidence.',
+    to: '/docs/mystic_auth/security/decisions',
+  },
+  {
     icon: Server,
     title: 'Self-Hosted Deployment',
     description:
-      'Docker Compose setup, self-hosted error monitoring (Bugsink), background email queue (Procrastinate), and Cloudflare Tunnel or Caddy TLS options.',
+      'Docker Compose setup, self-hosted error monitoring, background email delivery, and Cloudflare Tunnel or Caddy TLS options.',
     to: '/docs/mystic_auth/deployment/guide',
   },
 ];
 
 function FeatureCard({ icon: Icon, title, description, to }: Feature) {
   return (
-    <div className="col col--4">
-      <Link to={to} className={clsx('card-surface', styles.featureCard)}>
-        <Icon className={styles.featureIcon} size={20} aria-hidden="true" />
-        <Heading as="h3" className={styles.featureTitle}>
-          {title}
-        </Heading>
-        <p className={styles.featureDescription}>{description}</p>
-      </Link>
-    </div>
+    <Link to={to} className={clsx('card-surface', styles.featureCard)}>
+      <Icon className={styles.featureIcon} size={20} aria-hidden="true" />
+      <Heading as="h3" className={styles.featureTitle}>
+        {title}
+      </Heading>
+      <p className={styles.featureDescription}>{description}</p>
+    </Link>
   );
 }
 
@@ -96,9 +107,11 @@ export default function Home(): ReactNode {
       <main>
         <section className={clsx('section', styles.features)}>
           <div className="container">
-            <div className="row">
+            <div className={styles.featureGrid}>
               {features.map((feature) => (
-                <FeatureCard key={feature.title} {...feature} />
+                <div key={feature.title}>
+                  <FeatureCard {...feature} />
+                </div>
               ))}
             </div>
           </div>

@@ -4,7 +4,7 @@
     flex-direction: column;
     height: 100%;
     padding-top: var(--ifm-navbar-height);
-    min-width: min-content;
+    min-width: 0;
   }
 
   .sidebarWithHideableNavbar {
@@ -52,7 +52,7 @@
 }
 
 [data-theme='dark'] .sidebarHeader {
-  background: #27272a;
+  background: #0f141d;
 }
 
 .sidebarToggleBtn {

@@ -25,16 +25,31 @@
   font-size: 1.5rem !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em !important;
-  color: var(--ifm-color-primary) !important;
+  color: var(--brand-700) !important;
+}
+
+[data-theme='dark'] .navbar__title {
+  color: var(--brand-300) !important;
 }
 
 /* Search box border (the local-search plugin ships with none) */
 .navbar__search-input {
-  border: 1px solid var(--card-border) !important;
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-strong, #c5cedb) !important;
   border-radius: 6px !important;
+  color: var(--ifm-font-color-base) !important;
   transition:
     border-color 0.1s ease,
     box-shadow 0.1s ease;
+}
+
+.navbar__search-input::placeholder {
+  color: var(--fg-muted) !important;
+  opacity: 1;
+}
+
+.navbar__search-input:hover {
+  border-color: var(--ifm-color-primary) !important;
 }
 
 .navbar__search-input:focus {

@@ -4,7 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'MysticAuth',
-  tagline: 'Full-stack authentication & PBAC authorization template',
+  tagline:
+    'An authentication and authorization system with policy based access control (PBAC)',
   favicon: 'img/favicon.svg',
 
   future: {
@@ -102,7 +103,7 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'Documentation for MysticAuth: a full-stack authentication and PBAC authorization template covering architecture, auth flows, deployment, and security.',
+          'Documentation for MysticAuth: authentication and authorization with policy based access control (PBAC), OAuth2/PKCE login, JWT sessions, audit logging, rate limiting, and i18n.',
       },
     ],
     image: 'img/docusaurus-social-card.jpg',

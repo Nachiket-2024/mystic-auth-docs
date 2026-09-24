@@ -6,7 +6,7 @@
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
-  background-color: #27272a !important;
+  background-color: #0f141d !important;
 }
 
 /* Solid sidebar collapse button (overrides Docusaurus's transparent default) */
@@ -16,7 +16,7 @@
 }
 
 [data-theme='dark'] {
-  --docusaurus-collapse-button-bg: #27272a;
+  --docusaurus-collapse-button-bg: #0f141d;
   --docusaurus-collapse-button-bg-hover: #3f3f46;
 }
 
@@ -63,18 +63,79 @@
 
   .theme-doc-sidebar-container > div {
     height: 100%;
+    overflow: hidden;
+  }
+
+  .theme-doc-sidebar-container nav.menu {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
     overflow-y: auto;
     overflow-x: auto;
-    scrollbar-width: thin;
+    scrollbar-width: auto;
+    scrollbar-color: var(--ifm-color-emphasis-500) transparent;
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-container nav.menu {
+    scrollbar-color: var(--ifm-color-emphasis-600) transparent;
+  }
+
+  .theme-doc-sidebar-container nav.menu::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .theme-doc-sidebar-container nav.menu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .theme-doc-sidebar-container nav.menu::-webkit-scrollbar-thumb {
+    background: var(--ifm-color-emphasis-500);
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
+  }
+
+  [data-theme='dark']
+    .theme-doc-sidebar-container
+    nav.menu::-webkit-scrollbar-thumb {
+    background: var(--ifm-color-emphasis-600);
+    background-clip: padding-box;
+  }
+
+  .theme-doc-sidebar-container nav.menu::-webkit-scrollbar-thumb:hover {
+    background: var(--ifm-color-emphasis-700);
+    background-clip: padding-box;
+  }
+
+  [data-theme='dark']
+    .theme-doc-sidebar-container
+    nav.menu::-webkit-scrollbar-thumb:hover {
+    background: var(--ifm-color-emphasis-500);
+    background-clip: padding-box;
+  }
+
+  .theme-doc-sidebar-container nav.menu::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  .theme-doc-sidebar-container nav.menu > ul {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  /* Keep the navigation, rather than the outer sidebar shell, scrollable. */
+  .theme-doc-sidebar-menu + * {
+    flex-shrink: 0;
   }
 
   .theme-doc-sidebar-container > div::-webkit-scrollbar {
     width: 4px;
-    height: 4px;
+    height: 0;
   }
 
   .theme-doc-sidebar-container > div::-webkit-scrollbar-thumb {
-    background: var(--ifm-color-emphasis-300);
+    background: transparent;
     border-radius: 4px;
   }
 

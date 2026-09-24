@@ -12,12 +12,16 @@
 }
 
 .pagination-nav__link:hover {
-  background-color: var(--sidebar-hover-bg);
+  background-color: var(--brand-100);
   text-decoration: none;
 }
 
 [data-theme='dark'] .pagination-nav__link {
   border-color: var(--brand-300);
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  background-color: var(--sidebar-hover-bg);
 }
 
 .pagination-nav__sublabel {

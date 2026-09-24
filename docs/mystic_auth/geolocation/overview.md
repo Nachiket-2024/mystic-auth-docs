@@ -4,7 +4,7 @@
 
 _New to a term here? See the [Operations Glossary](../glossary/operations.md)._
 
-Off by default. Resolves each login's city/country from its IP for the "Manage Sessions" dashboard's Location column, so a user (or an admin looking at someone else's sessions) can tell "Sydney, Australia" from "an unfamiliar location" at a glance, rather than staring at a bare IP address.
+Off by default. Resolves each login's city/country from its IP for the "Manage Sessions" dashboard's Location column, so a user with the required permission can tell "Sydney, Australia" from "an unfamiliar location" at a glance, rather than staring at a bare IP address.
 
 ---
 
