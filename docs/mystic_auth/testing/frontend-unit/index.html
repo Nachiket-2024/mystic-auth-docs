@@ -1,0 +1,207 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-mystic_auth/testing/frontend-unit" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Frontend Unit Tests | MysticAuth</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://Nachiket-2024.github.io/mystic-auth-docs/img/docusaurus-social-card.jpg /><meta data-rh=true name=twitter:image content=https://Nachiket-2024.github.io/mystic-auth-docs/img/docusaurus-social-card.jpg /><meta data-rh=true property=og:url content=https://Nachiket-2024.github.io/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=keywords content="authentication, authorization, PBAC, JWT, OAuth2, template, full-stack, docs"/><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Frontend Unit Tests | MysticAuth"/><meta data-rh=true name=description content=--- /><meta data-rh=true property=og:description content=--- /><link data-rh=true rel=icon href=/mystic-auth-docs/img/favicon.svg /><link data-rh=true rel=canonical href=https://Nachiket-2024.github.io/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit /><link data-rh=true rel=alternate href=https://Nachiket-2024.github.io/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit hreflang=en /><link data-rh=true rel=alternate href=https://Nachiket-2024.github.io/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://Nachiket-2024.github.io/mystic-auth-docs/docs/mystic_auth/testing/overview","name":"Testing & CI/CD","position":1},{"@type":"ListItem","item":"https://Nachiket-2024.github.io/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit","name":"Frontend Unit Tests","position":2}]}</script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin=anonymous><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"><link rel=stylesheet href=/mystic-auth-docs/assets/css/styles.a33eee70.css /><script src=/mystic-auth-docs/assets/js/runtime~main.91c45189.js defer></script><script src=/mystic-auth-docs/assets/js/main.ff4e6db6.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-96b")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"dark"),document.documentElement.setAttribute("data-theme-choice",t||"dark")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/mystic-auth-docs/img/logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/mystic-auth-docs/><div class=navbar__logo><img src=/mystic-auth-docs/img/logo.svg alt="MysticAuth Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/mystic-auth-docs/img/logo.svg alt="MysticAuth Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">MysticAuth</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><div class="navbar__search searchBarContainer_NW3z" dir=ltr><svg aria-hidden=true class=searchIcon_T3tP focusable=false viewBox="0 0 16 16"><path fill=currentColor d="M6.02945 10.20327a4.17382 4.17382 0 1 1 4.17382-4.17382 4.15609 4.15609 0 0 1-4.17382 4.17382Zm9.69195 4.2199-4.8225-4.82338A5.88021 5.88021 0 0 0 12.058 6.02856 6.00467 6.00467 0 1 0 9.59979 10.8989l4.82338 4.82338a.89729.89729 0 0 0 1.29912 0 .89749.89749 0 0 0-.00087-1.29909Z"/></svg><input placeholder=Search aria-label=Search class="navbar__search-input searchInput_YFbd" value="" /><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div><a href=https://github.com/Nachiket-2024/mystic-auth target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">MysticAuth Repo<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://github.com/Nachiket-2024/mystic-auth-docs target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Docs Repo<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_ntye" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_mhZE><div class=sidebarHeader_td2D><button class=sidebarToggleBtn_rknc title="Expand all sections" type=button><svg width=14 height=14 viewBox="0 0 24 24" aria-hidden=true><path fill=currentColor d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg><span>Expand All</span></button><button class=sidebarToggleBtn_rknc title="Collapse all sections" type=button><svg width=14 height=14 viewBox="0 0 24 24" aria-hidden=true><path fill=currentColor d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg><span>Collapse All</span></button></div><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/template-usage/overview><span class=categoryLinkLabel_W154>Using as a Template</span></a><button aria-label="Expand sidebar category 'Using as a Template'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 sidebar-divider-container"><hr class=sidebar-divider /><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/api/reference><span class=linkLabel_WmDU>API Reference</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/appearance/overview><span class=linkLabel_WmDU>Appearance</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/architecture/system-overview><span class=categoryLinkLabel_W154>Architecture</span></a><button aria-label="Expand sidebar category 'Architecture'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/authentication/overview><span class=categoryLinkLabel_W154>Authentication</span></a><button aria-label="Expand sidebar category 'Authentication'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/authorization/architecture/><span class=categoryLinkLabel_W154>Authorization (PBAC)</span></a><button aria-label="Expand sidebar category 'Authorization (PBAC)'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/background-workers/procrastinate><span class=linkLabel_WmDU>Background Workers</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/concerns/><span class=linkLabel_WmDU>Concerns</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/database/design><span class=linkLabel_WmDU>Database</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/deployment/guide><span class=categoryLinkLabel_W154>Deployment & DevOps</span></a><button aria-label="Expand sidebar category 'Deployment & DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/documentation-style><span class=linkLabel_WmDU>Documentation Style</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/environment/><span class=categoryLinkLabel_W154>Environment</span></a><button aria-label="Expand sidebar category 'Environment'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/error-monitoring/overview><span class=linkLabel_WmDU>Error Monitoring</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/geolocation/overview><span class=linkLabel_WmDU>Geolocation</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/glossary/><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/mystic-auth-docs/docs/mystic_auth/legal/overview><span class=linkLabel_WmDU>Legal</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/project-story/><span class=categoryLinkLabel_W154>Project Story</span></a><button aria-label="Expand sidebar category 'Project Story'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/security/decisions><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/mystic-auth-docs/docs/mystic_auth/testing/overview><span class=categoryLinkLabel_W154>Testing & CI/CD</span></a><button aria-label="Collapse sidebar category 'Testing & CI/CD'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend><span class=linkLabel_WmDU>Backend Test Map</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend-authentication><span class=linkLabel_WmDU>Backend Authentication Test Detail</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend-authorization><span class=linkLabel_WmDU>Backend Authorization Test Detail</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend-integration><span class=linkLabel_WmDU>Backend Integration Tests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend-security-performance><span class=linkLabel_WmDU>Backend Security and Performance Tests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend-unit><span class=linkLabel_WmDU>Backend Unit Tests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/backend-users-sessions><span class=linkLabel_WmDU>Backend Users and Sessions Test Detail</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend><span class=linkLabel_WmDU>Frontend Test Map</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-authentication><span class=linkLabel_WmDU>Frontend Authentication Test Detail</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-authorization><span class=linkLabel_WmDU>Frontend Authorization Test Detail</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-e2e><span class=linkLabel_WmDU>Frontend Browser E2E Tests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-integration><span class=linkLabel_WmDU>Frontend Integration Tests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-pages-test-detail><span class=linkLabel_WmDU>Frontend Page Test Detail</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit><span class=linkLabel_WmDU>Frontend Unit Tests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/mystic-auth-docs/docs/mystic_auth/testing/tooling><span class=linkLabel_WmDU>Test Tooling and CI</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/mystic-auth-docs/docs/mystic_auth/translations/overview/><span class=categoryLinkLabel_W154>Translations</span></a><button aria-label="Expand sidebar category 'Translations'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Alpn" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/mystic-auth-docs/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/mystic-auth-docs/docs/mystic_auth/testing/overview><span>Testing & CI/CD</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><a class=breadcrumbs__link href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-unit><span>Frontend Unit Tests</span></a></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Frontend Unit Tests</h1></header>
+<hr/>
+<p><em>New to a term here? See the <a class="" href=/mystic-auth-docs/docs/mystic_auth/glossary/testing>Testing Glossary</a>.</em></p>
+<p>These 96 Vitest modules isolate one frontend rule, API client, hook, store,
+component, or helper. They are intentionally narrower than page integration
+tests. A passing unit test means the named client-side contract works with
+controlled inputs; it does not mean that the backend accepted a request.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=account-settings-and-active-sessions>Account settings and active sessions<a href=#account-settings-and-active-sessions class=hash-link aria-label="Direct link to Account settings and active sessions" title="Direct link to Account settings and active sessions" translate=no>​</a></h2>
+<ul>
+<li class=""><code>account_settings/useUnsavedChangesWarning.test.tsx</code> verifies dirty-form
+detection, navigation blocking, and confirmation behavior.</li>
+<li class=""><code>active_sessions/parseUserAgent.test.ts</code> verifies browser/device parsing for
+the session list, including unknown and incomplete user agents.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=api-clients>API clients<a href=#api-clients class=hash-link aria-label="Direct link to API clients" title="Direct link to API clients" translate=no>​</a></h2>
+<ul>
+<li class=""><code>api/account_settings_api.test.ts</code> verifies account-settings URLs, methods,
+bodies, and typed errors.</li>
+<li class=""><code>api/apiError.test.ts</code> verifies conversion of HTTP and unknown failures into
+the frontend API-error shape.</li>
+<li class=""><code>api/audit_api.test.ts</code> verifies audit and security-log query parameters,
+response mapping, and errors.</li>
+<li class=""><code>api/getCurrentUserApi.test.ts</code> verifies the current-user request and typed
+response handling.</li>
+<li class=""><code>api/loginApi.test.ts</code> verifies login request payloads and error mapping.</li>
+<li class=""><code>api/logoutApi.test.ts</code> verifies logout and logout-all requests.</li>
+<li class=""><code>api/oauth2Api.test.ts</code> verifies OAuth provider and callback request URLs.</li>
+<li class=""><code>api/passwordResetApi.test.ts</code> verifies reset-request and reset-confirmation
+payloads and failures.</li>
+<li class=""><code>api/policies_api.test.ts</code> verifies policy list, CRUD, status, and assignment
+request construction.</li>
+<li class=""><code>api/rate_limits_api.test.ts</code> verifies rate-limit query and reset requests.</li>
+<li class=""><code>api/signupApi.test.ts</code> verifies signup payloads and validation errors.</li>
+<li class=""><code>api/users_api.test.ts</code> verifies user list, detail, update, grant, bulk, and
+export request construction.</li>
+<li class=""><code>api/verifyAccountApi.test.ts</code> verifies verification request and token
+confirmation calls.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=audit-log-presentation>Audit log presentation<a href=#audit-log-presentation class=hash-link aria-label="Direct link to Audit log presentation" title="Direct link to Audit log presentation" translate=no>​</a></h2>
+<ul>
+<li class=""><code>audit_log/auditLogListConfig.test.ts</code> verifies category-specific columns,
+labels, filters, and display configuration.</li>
+<li class=""><code>audit_log/auditLogQueries.test.tsx</code> verifies query-key construction,
+pagination/filter state, and enabled/disabled query behavior.</li>
+<li class=""><code>audit_log/authorization_log/AuthorizationDetailsDrawer.test.tsx</code> verifies
+authorization decision details and safe metadata display.</li>
+<li class=""><code>audit_log/authorization_log/AuthorizationFilterBar.test.tsx</code> verifies
+authorization filters, reset behavior, and controlled values.</li>
+<li class=""><code>audit_log/authorization_log/authorizationLogColumns.test.tsx</code> verifies
+authorization actor, action, resource, outcome, and timestamp columns.</li>
+<li class=""><code>audit_log/security_log/LoginTrendChart.test.tsx</code> verifies login-trend data
+grouping, empty states, labels, and chart accessibility text.</li>
+<li class=""><code>audit_log/security_log/SecurityDetailsDrawer.test.tsx</code> verifies security
+event details and safe rendering of event metadata.</li>
+<li class=""><code>audit_log/security_log/SecurityFilterBar.test.tsx</code> verifies security-event
+filters and reset behavior.</li>
+<li class=""><code>audit_log/security_log/securityLogColumns.test.tsx</code> verifies security event
+columns, labels, and redaction-safe values.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authentication-and-session-lifecycle>Authentication and session lifecycle<a href=#authentication-and-session-lifecycle class=hash-link aria-label="Direct link to Authentication and session lifecycle" title="Direct link to Authentication and session lifecycle" translate=no>​</a></h2>
+<ul>
+<li class=""><code>auth/auth_page_mobile_overflow.test.tsx</code> verifies auth layouts do not
+produce horizontal overflow at narrow widths.</li>
+<li class=""><code>auth/current_user/useCurrentUserQuery.test.tsx</code> verifies current-user query
+loading, success, error, and cache state.</li>
+<li class=""><code>auth/oauth2/OAuth2LoginButton.test.tsx</code> verifies provider selection,
+disabled/pending behavior, and redirect initiation.</li>
+<li class=""><code>auth/password_reset_confirm_form.test.tsx</code> verifies reset form validation,
+submit state, success, and error feedback.</li>
+<li class=""><code>auth/password_reset_request_form.test.tsx</code> verifies reset-request
+validation, non-disclosing success, and cooldown behavior.</li>
+<li class=""><code>auth/password_rules/PasswordRulesChecklist.test.tsx</code> verifies individual
+password-rule indicators and accessible status text.</li>
+<li class=""><code>auth/password_rules/PasswordStrengthPanel.test.tsx</code> verifies strength
+calculation presentation and guidance for each strength level.</li>
+<li class=""><code>auth/password_rules/passwordRules.test.ts</code> verifies the pure password
+policy predicates and boundary values.</li>
+<li class=""><code>auth/session_lifecycle/crossTabRefresh.test.ts</code> verifies cross-tab token
+refresh coordination and duplicate-request prevention.</li>
+<li class=""><code>auth/session_lifecycle/setupAuthInterceptor.test.tsx</code> verifies 401 refresh,
+retry, logout, and failure handling in the HTTP interceptor.</li>
+<li class=""><code>auth/session_lifecycle/useSessionEventsStream.test.tsx</code> verifies SSE session
+events update auth state and close/reconnect safely.</li>
+<li class=""><code>auth/signup_form_legal_consent.test.tsx</code> verifies required legal consent
+and the signup button's enabled state.</li>
+<li class=""><code>auth/verify_account/verification_email_request_form.test.tsx</code> verifies
+verification-email form validation, pending, success, and errors.</li>
+<li class=""><code>auth/verify_account/verify_account_button.test.tsx</code> verifies token
+verification action states and navigation.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authorization-and-policy-helpers>Authorization and policy helpers<a href=#authorization-and-policy-helpers class=hash-link aria-label="Direct link to Authorization and policy helpers" title="Direct link to Authorization and policy helpers" translate=no>​</a></h2>
+<ul>
+<li class=""><code>authorization/Authorized.test.tsx</code> verifies permission-based rendering and
+the fail-closed result while permissions are unknown.</li>
+<li class=""><code>authorization/ProtectedRoute.test.tsx</code> verifies route redirects for
+unauthenticated, unauthorized, and authorized users.</li>
+<li class=""><code>authorization/authorizationService.test.ts</code> verifies client permission
+lookup and normalized authorization decisions.</li>
+<li class=""><code>authorization/destructiveActions.test.ts</code> verifies destructive-action
+visibility and confirmation requirements.</li>
+<li class=""><code>authorization/grantability.test.ts</code> verifies which permissions/policies a
+caller may grant based on effective authority.</li>
+<li class=""><code>authorization/useAuthorization.test.tsx</code> verifies hook loading, decisions,
+and decision refresh behavior.</li>
+<li class=""><code>authorization/useCan.test.tsx</code> verifies the small permission-check hook.</li>
+<li class=""><code>policies/effectiveGrants.test.ts</code> verifies merging of roles, policies, and
+direct grants into effective permission sets.</li>
+<li class=""><code>policies/policyCardHelpers.test.ts</code> verifies policy-card labels, actions,
+status, and permission-derived controls.</li>
+<li class=""><code>policies/policyListHelpers.test.ts</code> verifies policy filtering, sorting, and
+display helpers.</li>
+<li class=""><code>policies/selfPermissionMutationGuardArming.test.tsx</code> verifies the client
+guard that warns before removing the current user's protective access.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=application-shell-stores-theme-and-translations>Application shell, stores, theme, and translations<a href=#application-shell-stores-theme-and-translations class=hash-link aria-label="Direct link to Application shell, stores, theme, and translations" title="Direct link to Application shell, stores, theme, and translations" translate=no>​</a></h2>
+<ul>
+<li class=""><code>core/errorMonitoring.test.ts</code> verifies frontend error-monitoring setup and
+safe reporting behavior.</li>
+<li class=""><code>layout/app_layout/AppLayout.test.tsx</code> verifies shell composition and route
+outlet behavior.</li>
+<li class=""><code>layout/app_layout/Logo.test.tsx</code> verifies logo rendering and accessible
+branding link behavior.</li>
+<li class=""><code>layout/app_layout/Navbar.test.tsx</code> verifies navbar controls and responsive
+menu behavior.</li>
+<li class=""><code>layout/app_layout/Sidebar.test.tsx</code> verifies navigation items and active
+route state.</li>
+<li class=""><code>layout/app_layout/routePrefetch.test.ts</code> verifies route-prefetch decisions
+and duplicate-load avoidance.</li>
+<li class=""><code>layout/command_palette/CommandPalette.test.tsx</code> verifies search, keyboard
+navigation, command execution, and dismissal.</li>
+<li class=""><code>layout/controls/LanguageToggle.test.tsx</code> verifies language selection and
+accessible control state.</li>
+<li class=""><code>store/createSessionUiStore.test.ts</code> verifies session UI state transitions.</li>
+<li class=""><code>store/languageStore.test.ts</code> verifies language persistence and updates.</li>
+<li class=""><code>store/networkStatusStore.test.ts</code> verifies online/offline transitions.</li>
+<li class=""><code>store/routeLoadingStore.test.ts</code> verifies route-progress state.</li>
+<li class=""><code>store/themeStore.test.ts</code> verifies theme selection and persistence.</li>
+<li class=""><code>theme/appearanceThemeOverrides.test.ts</code> verifies appearance override
+resolution.</li>
+<li class=""><code>theme/applyFaviconAndMetaColor.test.ts</code> verifies favicon and meta-color DOM
+updates for the selected theme.</li>
+<li class=""><code>theme/brandIcon.test.ts</code> verifies brand icon variants and accessibility.</li>
+<li class=""><code>theme/fgTokens.test.ts</code> verifies foreground token generation.</li>
+<li class=""><code>theme/generateBrandScale.test.ts</code> verifies generated brand color scales.</li>
+<li class=""><code>translations/translation_key_parity.test.ts</code> verifies every locale has the
+same translation-key set as the source locale.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rate-limits-and-shared-ui>Rate limits and shared UI<a href=#rate-limits-and-shared-ui class=hash-link aria-label="Direct link to Rate limits and shared UI" title="Direct link to Rate limits and shared UI" translate=no>​</a></h2>
+<ul>
+<li class=""><code>rate_limits/RateLimitsFilterBar.test.tsx</code> verifies filter controls, values,
+reset, and accessibility labels.</li>
+<li class=""><code>rate_limits/RateLimitsStatsCard.test.tsx</code> verifies statistics formatting,
+loading, empty, and error presentation.</li>
+<li class=""><code>ui/AppTooltip.test.tsx</code> verifies tooltip trigger, content, delay, and
+keyboard behavior.</li>
+<li class=""><code>ui/Breadcrumbs.test.tsx</code> verifies breadcrumb labels, links, and current-page
+semantics.</li>
+<li class=""><code>ui/ConfirmDialog.test.tsx</code> verifies confirmation, cancel, pending, and
+destructive dialog behavior.</li>
+<li class=""><code>ui/CopyLinkButton.test.tsx</code> verifies clipboard success, failure, and status
+feedback.</li>
+<li class=""><code>ui/DataTable/DataTable.test.tsx</code> verifies table rendering, loading, empty,
+sorting, and row interaction.</li>
+<li class=""><code>ui/DataTable/DataTableSelection.test.tsx</code> verifies row selection, select
+all, indeterminate state, and disabled rows.</li>
+<li class=""><code>ui/DetailsDrawer.test.tsx</code> verifies drawer open/close, focus, and details
+layout.</li>
+<li class=""><code>ui/FilterChips.test.tsx</code> verifies applied-filter display and removal.</li>
+<li class=""><code>ui/FormAlert.test.tsx</code> verifies accessible error and warning presentation.</li>
+<li class=""><code>ui/GroupedSearchSelect.test.tsx</code> verifies grouped options, search, and
+keyboard selection.</li>
+<li class=""><code>ui/LoadingState.test.tsx</code> verifies loading indicators and accessible status.</li>
+<li class=""><code>ui/SegmentedControl.test.tsx</code> verifies selection, keyboard navigation, and
+disabled options.</li>
+<li class=""><code>ui/StyledSelect.test.tsx</code> verifies select rendering, values, and errors.</li>
+<li class=""><code>ui/TimeRangeControl.test.tsx</code> verifies range selection and validation.</li>
+<li class=""><code>ui/dateFormatters.test.ts</code> verifies timezone-safe date and relative-time
+formatting.</li>
+<li class=""><code>ui/network/OfflineBanner.test.tsx</code> verifies offline/online banner state.</li>
+<li class=""><code>ui/routing/ErrorBoundary.test.tsx</code> verifies caught-render-error fallback
+and recovery action.</li>
+<li class=""><code>ui/routing/RouteProgressBar.test.tsx</code> verifies route-transition progress.</li>
+<li class=""><code>ui/routing/trackedLazy.test.tsx</code> verifies lazy-route tracking and loading.</li>
+<li class=""><code>ui/security_controls.test.tsx</code> verifies security-sensitive UI helpers and
+safe default control states.</li>
+<li class=""><code>ui/sortState.test.ts</code> verifies sort parsing, toggling, and serialization.</li>
+<li class=""><code>ui/toaster/toaster.test.tsx</code> verifies toast creation, dismissal, and timing.</li>
+<li class=""><code>ui/useCooldown.test.tsx</code> verifies cooldown countdown and reset behavior.</li>
+<li class=""><code>ui/useScrollToHash.test.tsx</code> verifies hash navigation and scroll timing.</li>
+<li class=""><code>users/useUserAccessDialogState.test.tsx</code> verifies access-dialog selection,
+tab state, and reset behavior.</li>
+<li class=""><code>users/userQueries.test.ts</code> verifies user-query keys, pagination, and cache
+invalidation behavior.</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=see-also>See also<a href=#see-also class=hash-link aria-label="Direct link to See also" title="Direct link to See also" translate=no>​</a></h2>
+<ul>
+<li class=""><a class="" href=/mystic-auth-docs/docs/mystic_auth/testing/frontend>Frontend Test Map</a></li>
+<li class=""><a class="" href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-integration>Frontend Integration Tests</a></li>
+<li class=""><a class="" href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-e2e>Frontend Browser E2E Tests</a></li>
+<li class=""><a class="" href=/mystic-auth-docs/docs/mystic_auth/testing/frontend>Frontend Test Map</a></li>
+<li class=""><a class="" href=/mystic-auth-docs/docs/mystic_auth/testing/overview>Testing Overview</a></li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/mystic-auth-docs/docs/mystic_auth/testing/frontend-pages-test-detail><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Frontend Page Test Detail</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/mystic-auth-docs/docs/mystic_auth/testing/tooling><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Test Tooling and CI</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#account-settings-and-active-sessions class="table-of-contents__link toc-highlight">Account settings and active sessions</a><li><a href=#api-clients class="table-of-contents__link toc-highlight">API clients</a><li><a href=#audit-log-presentation class="table-of-contents__link toc-highlight">Audit log presentation</a><li><a href=#authentication-and-session-lifecycle class="table-of-contents__link toc-highlight">Authentication and session lifecycle</a><li><a href=#authorization-and-policy-helpers class="table-of-contents__link toc-highlight">Authorization and policy helpers</a><li><a href=#application-shell-stores-theme-and-translations class="table-of-contents__link toc-highlight">Application shell, stores, theme, and translations</a><li><a href=#rate-limits-and-shared-ui class="table-of-contents__link toc-highlight">Rate limits and shared UI</a><li><a href=#see-also class="table-of-contents__link toc-highlight">See also</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Quick Links</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://github.com/Nachiket-2024/mystic-auth target=_blank rel="noopener noreferrer" class=footer__link-item>MysticAuth Repo<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/Nachiket-2024/mystic-auth-docs target=_blank rel="noopener noreferrer" class=footer__link-item>Docs Repository<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>Copyright © 2026 MysticAuth. Built with Docusaurus.</div></div></div></footer></div></body>
