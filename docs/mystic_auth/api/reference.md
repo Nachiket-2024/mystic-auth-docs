@@ -51,9 +51,10 @@ Every endpoint that returns a list of rows (`GET /users/`, and the audit log end
 
 ## Refresh token: `/auth/refresh` (`api/auth_routes/refresh_token_routes.py`)
 
-| Method | Path             | Auth                                                           | Notes                                                                                                                                                                                                                      |
-| ------ | ---------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | `/auth/refresh/` | session (needs `refresh_token` cookie, scoped to `/auth` path) | Rotates the refresh token; reused-token detection revokes only that rotation chain, see [Rotation chains and reuse detection](../authentication/session-management/token-lifecycle.md#rotation-chains-and-reuse-detection) |
+| Method | Path             | Auth                                                           | Notes                                                                                                                                                                                                                                                                        |
+| ------ | ---------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | `/auth/refresh`  | session (needs `refresh_token` cookie, scoped to `/auth` path) | Canonical no-slash form; rotates the refresh token without an HTTP redirect. Reused-token detection revokes only that rotation chain, see [Rotation chains and reuse detection](../authentication/session-management/token-lifecycle.md#rotation-chains-and-reuse-detection) |
+| POST   | `/auth/refresh/` | session (needs `refresh_token` cookie, scoped to `/auth` path) | Rotates the refresh token; reused-token detection revokes only that rotation chain, see [Rotation chains and reuse detection](../authentication/session-management/token-lifecycle.md#rotation-chains-and-reuse-detection)                                                   |
 
 ---
 
