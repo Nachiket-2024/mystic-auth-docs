@@ -296,7 +296,7 @@ const sidebars: SidebarsConfig = {
             'mystic_auth/project-story/timeline/feb-jul',
             'mystic_auth/project-story/timeline/aug-2026',
             'mystic_auth/project-story/timeline/sep',
-            'mystic_auth/project-story/timeline/oct-2026',
+            'mystic_auth/project-story/timeline/oct',
           ],
         },
         {
@@ -330,6 +330,7 @@ const sidebars: SidebarsConfig = {
         'mystic_auth/security/hardening-http',
         'mystic_auth/security/hardening-infra',
         'mystic_auth/security/hardening-abuse-prevention',
+        'mystic_auth/security/integration-secrets',
       ],
     },
     {
