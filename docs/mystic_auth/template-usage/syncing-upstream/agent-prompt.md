@@ -60,13 +60,24 @@ derive from `APP_NAME`/`VITE_APP_NAME`, rather than a literal `MysticAuth`.
 Keep `mystic_auth` intact when it is a technical namespace, import path,
 Compose service/path prefix, or documentation code reference; never perform a
 global rename of that namespace. Backup and restore checks should likewise use
-the configured `POSTGRES_DB`, except when a test is intentionally testing the
-template default itself.
+the configured `POSTGRES_DB` and `POSTGRES_USER`, including negative
+restore-drill checks, except when a test is intentionally testing the template
+default itself.
 
 Include Dockerfiles, Compose modes, CI variables, healthchecks, seed/bootstrap,
 and backup commands in that audit. They should pass `APP_NAME`/`VITE_APP_NAME`
-and `POSTGRES_DB` through configuration; technical `mystic_auth` identifiers
-remain unchanged. CI fixture values must not become production defaults.
+and `POSTGRES_DB`/`POSTGRES_USER` through configuration; technical
+`mystic_auth` identifiers remain unchanged. Inherited landing-page checks
+should assert stable landmarks and behavior rather than template marketing
+copy or a downstream product name. Browser-only download tests should mock
+the jsdom browser API boundary so they do not trigger unsupported document
+navigation. CI fixture values must not become production defaults.
+
+When a broad integration run intermittently loses deferred audit entries,
+inspect worker teardown before changing application behavior. Cleanup may
+remove only terminal background-job rows; deleting in-flight `todo`/`doing`
+jobs can make successful authorization decisions disappear while isolated
+tests still pass.
 
 ---
 
@@ -92,7 +103,7 @@ The sync prompt reads only `COMPOSE_PROJECT_NAME`, `APP_NAME`, and
 identity when answering `setup-env`'s prompts. It never reads secret values.
 
 The sync script also enforces the ownership table before applying a patch:
-upstream changes to downstream-owned code or app folders block the whole sync,
+upstream changes to downstream-owned code, CI, or app folders block the whole sync,
 while root `README.md`, `SECURITY.md`, and `CONTRIBUTING.md` changes are
 reported, excluded, and preserved locally.
 The prompt therefore tells the agent to classify conflicts by ownership

@@ -33,7 +33,7 @@ Migrations run with `DATABASE_URL`, normally the Postgres superuser. Runtime app
 
 The application database name is always taken from `POSTGRES_DB` in the
 selected mode's environment files. It is not required to be `mystic_auth`:
-downstream applications may use a name such as `manifest_cv`. The encrypted
+downstream applications may use a name such as `example_app_db`. The encrypted
 backup round-trip test and restore-drill regression check follow the same
 setting and check the configured application database plus the separate
 `bugsink` database, so template and downstream runs exercise the same
@@ -182,6 +182,11 @@ flowchart TD
 
 The real database is never touched by any step above - the drill's whole point is proving
 restorability without risking the thing it's protecting.
+
+The drill reads both `POSTGRES_DB` and `POSTGRES_USER` from the selected
+environment (or the corresponding exported variables). Keep those values
+aligned with the database container; the scripts intentionally do not assume
+the role is named `postgres`.
 
 ```bash
 # Prove the dev stack's own database is restorable
