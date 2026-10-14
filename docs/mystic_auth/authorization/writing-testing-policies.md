@@ -4,6 +4,8 @@
 
 _New to a term here? See the [Authorization Glossary](../glossary/authorization.md)._
 
+---
+
 ## Policy creation workflow
 
 ```mermaid

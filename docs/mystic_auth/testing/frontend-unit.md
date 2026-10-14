@@ -18,6 +18,8 @@ controlled inputs; it does not mean that the backend accepted a request.
 - `active_sessions/parseUserAgent.test.ts` verifies browser/device parsing for
   the session list, including unknown and incomplete user agents.
 
+---
+
 ## Shared UI, stores, and security-log presentation
 
 - `store/fontSizeStore.test.ts` verifies persisted font-size selection and
@@ -30,6 +32,8 @@ controlled inputs; it does not mean that the backend accepted a request.
 - `audit_log/security_log/securityAccessChangeDetails.test.ts` verifies
   access-change detail rendering for complete, partial, blank, and unknown
   event metadata.
+
+---
 
 ## API clients
 
@@ -55,6 +59,8 @@ controlled inputs; it does not mean that the backend accepted a request.
 - `api/verifyAccountApi.test.ts` verifies verification request and token
   confirmation calls.
 
+---
+
 ## Audit log presentation
 
 - `audit_log/auditLogListConfig.test.ts` verifies category-specific columns,
@@ -76,6 +82,8 @@ controlled inputs; it does not mean that the backend accepted a request.
   filters and reset behavior.
 - `audit_log/security_log/securityLogColumns.test.tsx` verifies security event
   columns, labels, and redaction-safe values.
+
+---
 
 ## Authentication and session lifecycle
 
@@ -108,6 +116,8 @@ controlled inputs; it does not mean that the backend accepted a request.
 - `auth/verify_account/verify_account_button.test.tsx` verifies token
   verification action states and navigation.
 
+---
+
 ## Authorization and policy helpers
 
 - `authorization/Authorized.test.tsx` verifies permission-based rendering and
@@ -131,6 +141,8 @@ controlled inputs; it does not mean that the backend accepted a request.
   display helpers.
 - `policies/selfPermissionMutationGuardArming.test.tsx` verifies the client
   guard that warns before removing the current user's protective access.
+
+---
 
 ## Application shell, stores, theme, and translations
 
@@ -169,6 +181,8 @@ Status-page tests read the configured frontend `APP_NAME` rather than asserting
 the template's default `MysticAuth` label. They accept either the configured
 wordmark text or the accessible custom-logo image, so downstream branding and
 `VITE_APP_LOGO_URL` remain valid test configurations.
+
+---
 
 ## Rate limits and shared UI
 
@@ -226,3 +240,5 @@ wordmark text or the accessible custom-logo image, so downstream branding and
 - [Frontend Browser E2E Tests](frontend-e2e.md)
 - [Frontend Test Map](frontend.md)
 - [Testing Overview](overview.md)
+
+---

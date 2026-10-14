@@ -35,6 +35,8 @@ and accessibility behavior.
 - `e2e/dashboard/active_sessions_browser.spec.ts` covers session-card revoke,
   confirmation, and focus restoration.
 
+---
+
 ## Users and access dialogs
 
 - `integration/users/users_page.test.tsx` covers list data, pagination,
@@ -61,6 +63,8 @@ and accessibility behavior.
   removal, and per-item results.
 - `e2e/users/users_page_browser.spec.ts` covers visible user tables, dialogs,
   escaped content, and permission gates in a real browser.
+
+---
 
 ## Policies, permissions, audit log, and rate limits
 
@@ -110,3 +114,5 @@ Authorization Test Detail](frontend-authorization.md).
 - [Frontend Integration Tests](frontend-integration.md)
 - [Frontend Browser E2E Tests](frontend-e2e.md)
 - [Frontend Authorization Test Detail](frontend-authorization.md)
+
+---

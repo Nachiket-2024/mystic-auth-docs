@@ -22,6 +22,8 @@ and the real-account browser matrix.
 - `tests/frontend/app/status_pages/status_pages.test.tsx` verifies status,
   not-found, and not-authorized page rendering.
 
+---
+
 ## Account settings and sessions
 
 - `mystic_auth/integration/account_settings/account_settings_page.test.tsx`
@@ -38,6 +40,8 @@ and the real-account browser matrix.
 - `active_sessions/active_sessions_card.test.tsx` verifies session listing,
   current-device labeling, revoke actions, empty state, and errors.
 
+---
+
 ## Audit log, authentication, and authorization
 
 - `audit_log/audit_log_page.test.tsx` verifies category rendering, query
@@ -53,6 +57,8 @@ and the real-account browser matrix.
   rules match the backend-provided policy contract.
 - `authorization/pbac_authorization_flow.test.tsx` verifies permission-driven
   content, fail-closed loading behavior, and protected UI transitions.
+
+---
 
 ## Dashboard, permissions, policies, and rate limits
 
@@ -76,6 +82,8 @@ and the real-account browser matrix.
   deletion confirmation, protected-policy guards, and errors.
 - `rate_limits/rate_limits_page.test.tsx` verifies rate-limit data, filters,
   reset behavior, loading/errors, and permission gates.
+
+---
 
 ## Users and permission management
 
@@ -123,3 +131,5 @@ boundary and explain how the scenarios are made repeatable:
 - [Frontend Browser E2E Tests](frontend-e2e.md)
 - [Frontend Test Map](frontend.md)
 - [Testing Overview](overview.md)
+
+---
