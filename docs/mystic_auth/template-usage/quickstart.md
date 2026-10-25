@@ -8,7 +8,7 @@ _Part of [Using This Repository as a Template](overview.md). This page covers ev
 
 ## Quickstart
 
-Prefer to hand this to an AI coding agent (Claude Code, Codex, or similar) instead of following the steps below yourself? See [`agent-prompts/new-project-setup.md`](https://github.com/Nachiket-2024/mystic-auth/blob/main/agent-prompts/mystic_auth/new-project-setup.md) at the repo root for a ready-to-paste prompt.
+Prefer to hand this to an AI coding agent (Claude Code, Codex, or similar) instead of following the steps below yourself? See [`agent-prompts/new-project-setup.md`](https://github.com/Nachiket-2024/mystic-auth/blob/main/agent-prompts/mystic_auth/$3) at the repo root for a ready-to-paste prompt.
 
 ```mermaid
 %%{init: {"themeVariables": {"lineColor": "#334155"}} }%%

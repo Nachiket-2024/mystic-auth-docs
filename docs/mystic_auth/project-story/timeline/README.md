@@ -10,10 +10,10 @@ of the story doesn't.
 The commit history shows the real evolution, not a fully planned architecture from day one. The
 first commit was on 18 August, 2025, and there's a 4-month gap between October 2025 and February 2026.
 
-Completed entries below follow the same convention. Before a manual commit, the next change set
-is recorded as a prospective numbered entry: it has the next `### Commit N: <date>` heading, a
-quoted proposed subject, and concise bullets, but no hash or statistics until the commit exists.
-The preceding entry is then completed with the real hash and exact `git show --shortstat` output.
+Timeline pages record completed commits only. Add each commit's next sequential
+`### Commit N: <date>` entry with its actual subject and a concise summary. Include the hash and
+exact `git show --shortstat` output for earlier commits. An entry for a commit that edits a
+timeline page omits its own hash and statistics, since recording them would change that commit.
 
 Each completed entry below follows the same convention:
 
@@ -28,10 +28,10 @@ Each completed entry below follows the same convention:
   commit message doesn't excuse a terse or incomplete entry. Always `-` bullets, never numbered
   (the points are parallel facts about the commit, not ordered steps) and never prose paragraphs,
   so the format stays uniform across a one-line fix and a 591-file rewrite alike.
-- Closes with its exact files-changed count (and, once the commit actually exists, its
-  lines-changed count too) from `git show --shortstat`: a short entry is a small commit, a long one
-  is a large or architecturally significant commit, not an editorial choice about how interesting
-  the day was.
+- Closes with its exact files-changed count and line counts from `git show --shortstat`, except
+  when the entry describes the commit that edits a timeline page. A short entry is a small commit,
+  a long one is a large or architecturally significant commit, not an editorial choice about how
+  interesting the day was.
 
 ---
 
@@ -74,28 +74,29 @@ timeline
                    : docker/env split into app/mystic_auth, Makefile
                    : Frontend migrated to shadcn/Radix
                    : Backblaze B2 backup verification, boot-shell, mobile LCP fixes
-    October 2026: Coverage increase, backend tooling, backup, sync hardening
+    October 2026: Coverage, backend tooling, backup and upstream-sync changes
                   : Durable token revocation, lifecycle event queue, backup HMAC verification
                   : Split CI ownership, downstream validation fixes
-                  : Runtime hardening, dependency notices, production validation, and documentation corrections
+                  : Runtime security fixes, dependency notices, production validation, and documentation updates
                   : Extended API rate limits, CSP and backup checks, PostgreSQL 18
+                  : Security audit fixes, refresh-token revocation and upstream-sync splits, dependency updates
 ```
 
 ---
 
 ## Pages
 
-- [August 2025](aug-2025): commits 1-16, 18 August, 2025 to 31 August, 2025.
+- [August 2025](2025-aug.md): commits 1-16, 18 August, 2025 to 31 August, 2025.
 - [September-October 2025](2025-sep-oct.md): commits 17-36, 1 September, 2025 to 14 October, 2025.
 - [February-July 2026](2026-feb-jul.md): commits 37-53, 21 February, 2026 to 29 July, 2026.
-- [August 2026](aug-2026): commits 54-69, 2 August, 2026 to 29 August, 2026.
+- [August 2026](2026-aug.md): commits 54-69, 2 August, 2026 to 29 August, 2026.
 - [September 2026](2026-sep.md): commits 70-77, 4 September, 2026 to 29 September, 2026.
-- [October 2026](2026-oct.md): commits 78-82, 1 October, 2026 to 15 October, 2026 (82 is prospective).
+- [October 2026](2026-oct.md): commits 78-83, 1 October, 2026 to 25 October, 2026.
 
 ---
 
 ## The tools that built it
 
-See [The Tools That Built It](../tools.md) for the two workflows: manual ChatGPT + VS Code for most of it, then Claude Code (and briefly Codex) from July 2026 on.
+See [The Tools That Built It](../tools.md) for the two workflows: manual ChatGPT + VS Code for most of it, then Claude Code and Codex from July 2026 on.
 
 ---
