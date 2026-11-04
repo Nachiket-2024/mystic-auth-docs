@@ -98,16 +98,25 @@
   border-color: var(--brand-500);
 }
 
-/* Matches mystic-auth's highlight icon color (brand.solid) */
-.featureIcon {
-  color: var(--brand-600);
+/* Keeps each feature icon on the heading's text line. */
+.featureHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3.25rem;
   margin-bottom: 0.5rem;
 }
 
+.featureIcon {
+  color: var(--brand-600);
+  flex: 0 0 auto;
+}
+
 .featureTitle {
-  margin-bottom: 0.35rem;
+  margin: 0;
   font-weight: 600;
   letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 .featureDescription {

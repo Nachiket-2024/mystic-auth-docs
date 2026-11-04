@@ -92,6 +92,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'mystic_auth/authentication/oauth2-pkce',
+        'mystic_auth/authentication/passkeys',
         {
           type: 'category',
           label: 'Account Deletion and Purge',
@@ -183,12 +184,17 @@ const sidebars: SidebarsConfig = {
       label: 'Deployment & DevOps',
       link: {
         type: 'doc',
-        id: 'mystic_auth/deployment/guide',
+        id: 'mystic_auth/deployment/README',
       },
       items: [
         'mystic_auth/deployment/environment',
         'mystic_auth/deployment/routing',
-        'mystic_auth/deployment/migrations-and-backups',
+        'mystic_auth/deployment/dependency-locking',
+        'mystic_auth/deployment/scaling',
+        'mystic_auth/deployment/secret-rotation',
+        'mystic_auth/deployment/database-migrations',
+        'mystic_auth/deployment/database-backups',
+        'mystic_auth/deployment/database-restore-and-recovery',
         'mystic_auth/deployment/production-host',
         'mystic_auth/deployment/dev',
         {
@@ -251,6 +257,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'mystic_auth/error-monitoring/ntfy-alerts',
+      label: 'ntfy Alerts',
+    },
+    {
+      type: 'doc',
       id: 'mystic_auth/geolocation/overview',
       label: 'Geolocation',
     },
@@ -298,6 +309,7 @@ const sidebars: SidebarsConfig = {
             'mystic_auth/project-story/timeline/aug-2026',
             'mystic_auth/project-story/timeline/sep',
             'mystic_auth/project-story/timeline/oct',
+            'mystic_auth/project-story/timeline/nov',
           ],
         },
         {
@@ -327,6 +339,8 @@ const sidebars: SidebarsConfig = {
         'mystic_auth/security/decisions-auth',
         'mystic_auth/security/decisions-infra',
         'mystic_auth/security/decisions-product',
+        'mystic_auth/security/asvs-mapping',
+        'mystic_auth/security/threat-model',
         'mystic_auth/security/hardening',
         'mystic_auth/security/hardening-http',
         'mystic_auth/security/hardening-infra',
@@ -355,7 +369,9 @@ const sidebars: SidebarsConfig = {
         'mystic_auth/testing/frontend-e2e',
         'mystic_auth/testing/frontend-integration',
         'mystic_auth/testing/frontend-pages-test-detail',
+        'mystic_auth/testing/frontend-performance-measurements',
         'mystic_auth/testing/frontend-unit',
+        'mystic_auth/testing/verification-history',
         'mystic_auth/testing/accessibility-manual-checklist',
         'mystic_auth/testing/tooling',
       ],

@@ -7,9 +7,9 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import {
   KeyRound,
-  ScrollText,
   Server,
   ShieldCheck,
+  UserRound,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -61,39 +61,41 @@ const features: Feature[] = [
     icon: KeyRound,
     title: 'Authentication',
     description:
-      'JWT/cookie sessions with refresh-token rotation, signup/verification, password reset, Google OAuth2/PKCE, and session management.',
+      'Email/password and Google sign-in, optional passkeys, verified signup, password resets, and revocable rotating sessions.',
     to: '/docs/mystic_auth/authentication/overview',
   },
   {
     icon: ShieldCheck,
-    title: 'Authorization (PBAC)',
+    title: 'Authorization',
     description:
-      'Policy-Based Access Control with conditions, resource-level permissions, audit logging, and a privilege-escalation guard.',
+      'Condition-aware policies and direct grants protect routes, with explicit permission checks and auditable access decisions.',
     to: '/docs/mystic_auth/authorization/architecture',
   },
   {
-    icon: ScrollText,
-    title: 'Auditability',
+    icon: UserRound,
+    title: 'Account Experience',
     description:
-      'Security events and authorization decisions are recorded for review, troubleshooting, and operational confidence.',
-    to: '/docs/mystic_auth/security/decisions',
+      'Manage account lifecycle, set a personal brand color, and use the interface in English, Hindi, Marathi, or Gujarati.',
+    to: '/docs/mystic_auth/authentication/account-deletion/',
   },
   {
     icon: Server,
-    title: 'Self-Hosted Deployment',
+    title: 'System Operations',
     description:
-      'Docker Compose setup, self-hosted error monitoring, background email delivery, and Cloudflare Tunnel or Caddy TLS options.',
-    to: '/docs/mystic_auth/deployment/guide',
+      'Background email, self-hosted error and security alerts, Docker deployment options, and database backup and recovery.',
+    to: '/docs/mystic_auth/deployment',
   },
 ];
 
 function FeatureCard({ icon: Icon, title, description, to }: Feature) {
   return (
     <Link to={to} className={clsx('card-surface', styles.featureCard)}>
-      <Icon className={styles.featureIcon} size={20} aria-hidden="true" />
-      <Heading as="h3" className={styles.featureTitle}>
-        {title}
-      </Heading>
+      <div className={styles.featureHeading}>
+        <Icon className={styles.featureIcon} size={20} aria-hidden="true" />
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+      </div>
       <p className={styles.featureDescription}>{description}</p>
     </Link>
   );

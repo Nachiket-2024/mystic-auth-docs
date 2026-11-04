@@ -1,4 +1,4 @@
-# Deployment Guide
+# Deployment Overview
 
 ---
 
@@ -30,14 +30,18 @@ Shared deployment index for dev, local-prod, and prod. Use this page to choose a
 
 ---
 
-| Topic                                                                       | Reference                                                |
-| --------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Environment file selection and required settings                            | [Environment and Runtime Configuration](environment.md)  |
-| Same-origin nginx routing and SPA/API route collisions                      | [Frontend and Backend Routing](routing.md)               |
-| Alembic migrations, backup scripts, scheduled dumps, and restore discipline | [Migrations and Backups](migrations-and-backups.md)      |
-| Graceful shutdown, host requirements, and deployment limitations            | [Production Host Requirements](production-host.md)       |
-| Service-by-service Docker topology                                          | [Docker Overview](../docker/overview.md)                 |
-| Known operational gaps                                                      | [Known Issues and Technical Debt](../concerns/README.md) |
+| Topic                                                            | Reference                                                |
+| ---------------------------------------------------------------- | -------------------------------------------------------- |
+| Environment file selection and required settings                 | [Environment and Runtime Configuration](environment.md)  |
+| Worker sizing and running several backend containers             | [Scaling and Multiple Backend Containers](scaling.md)    |
+| Rotating secrets safely                                          | [Rotating Secrets](secret-rotation.md)                   |
+| Same-origin nginx routing and SPA/API route collisions           | [Frontend and Backend Routing](routing.md)               |
+| Alembic migrations and the PostgreSQL major-version upgrade      | [Database Migrations](database-migrations.md)            |
+| Backup scripts, B2 copies, scheduled dumps, key rotation         | [Database Backups](database-backups.md)                  |
+| Restore drill and recovery                                       | [Restore and Recovery](database-restore-and-recovery.md) |
+| Graceful shutdown, host requirements, and deployment limitations | [Production Host Requirements](production-host.md)       |
+| Service-by-service Docker topology                               | [Docker Overview](../docker/overview.md)                 |
+| Known operational gaps                                           | [Known Issues and Technical Debt](../concerns/README.md) |
 
 ---
 
@@ -49,6 +53,6 @@ Shared deployment index for dev, local-prod, and prod. Use this page to choose a
 2. For a production-shaped local run through a tunnel, read [Local-Prod Deployment](local-prod/README.md), then one tunnel tutorial from that folder.
 3. For a public server deployment, read [Prod Deployment](prod.md).
 4. Before any production-shaped run, read [Environment and Runtime Configuration](environment.md).
-5. Before relying on a deployment, read [Migrations and Backups](migrations-and-backups.md) and [Production Host Requirements](production-host.md).
+5. Before relying on a deployment, read [Database Backups](database-backups.md), [Restore and Recovery](database-restore-and-recovery.md) and [Production Host Requirements](production-host.md).
 
 ---

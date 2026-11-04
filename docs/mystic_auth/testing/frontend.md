@@ -26,8 +26,8 @@ Detail](frontend-authentication.md) and [Frontend Page Test Detail](frontend-pag
 
 ## App-owned tests
 
-The three Vitest files under `tests/frontend/app/` cover the thin application
-wrapper: route selection, legal pages, and status/not-found/not-authorized
+The Vitest files under `tests/frontend/app/` cover the thin application
+wrapper: route selection, the import boundary, legal pages, and status/not-found/not-authorized
 pages. The three app-owned Playwright files under `tests/frontend/app/e2e/`
 verify the same public shell in a real browser.
 
@@ -38,7 +38,7 @@ These tests protect the boundary between the host application and the
 
 ## Unit tests
 
-The 101 files under `tests/frontend/mystic_auth/unit/` cover API request
+The files under `tests/frontend/mystic_auth/unit/` cover API request
 construction, auth state, PBAC visibility helpers, audit-log presentation,
 stores, theme behavior, shared controls, and small page helpers. They should
 be used for a single rule such as “this control is hidden without a
@@ -50,7 +50,7 @@ See [Frontend Unit Tests](frontend-unit.md) for each directory and source file.
 
 ## Integration tests
 
-The 33 files under `tests/frontend/mystic_auth/integration/` render complete
+The files under `tests/frontend/mystic_auth/integration/` render complete
 pages or meaningful page sections with mocked API responses. They prove how
 the frontend combines queries, loading states, error states, dialogs, tables,
 navigation, and permission gates. Because the server is mocked, they do not
@@ -64,7 +64,7 @@ boundaries, even though they live outside the MysticAuth integration tree.
 
 ## Browser E2E tests
 
-The 28 Playwright specs verify user-visible behavior in a real browser. Most
+The 29 Playwright specs verify user-visible behavior in a real browser. Most
 use mocked API responses to make UI behavior repeatable. The login/logout flow
 uses a disposable account. The real permission-matrix spec uses seeded
 accounts and checks `/auth/me`, route gates, authorization-log scope, and the
@@ -91,7 +91,6 @@ permission matrix is the bridge for seeded-account end-to-end checks.
 
 - [Frontend Unit Tests](frontend-unit.md)
 - [Frontend Integration Tests](frontend-integration.md)
-- [Frontend Browser E2E Tests](frontend-e2e.md)
 - [Frontend Browser E2E Tests](frontend-e2e.md)
 - [Testing Map](README.md)
 - [Testing Overview](overview.md)
