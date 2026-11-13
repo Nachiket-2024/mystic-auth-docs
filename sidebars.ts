@@ -114,6 +114,7 @@ const sidebars: SidebarsConfig = {
             id: 'mystic_auth/authentication/system-superuser/README',
           },
           items: [
+            'mystic_auth/authentication/system-superuser/app-policies',
             'mystic_auth/authentication/system-superuser/creation-and-promotion-behavior',
             'mystic_auth/authentication/system-superuser/running-commands',
           ],
@@ -303,7 +304,7 @@ const sidebars: SidebarsConfig = {
             id: 'mystic_auth/project-story/timeline/README',
           },
           items: [
-            'mystic_auth/project-story/timeline/aug-2025',
+            'mystic_auth/project-story/timeline/aug',
             'mystic_auth/project-story/timeline/sep-oct',
             'mystic_auth/project-story/timeline/feb-jul',
             'mystic_auth/project-story/timeline/aug-2026',

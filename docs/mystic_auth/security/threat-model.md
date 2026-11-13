@@ -122,13 +122,13 @@ Everything from the browser is untrusted, including cookies, headers, the `Origi
 
 ### Elevation of privilege (gaining more access)
 
-| Threat                                         | Control                                                                                                                           |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Missing authorization on a route               | Deny by default, `require_authorization` on each route                                                                            |
-| Acting on a more privileged account            | `users:manage_privileged` required when the target holds the admin role; the system account is untouchable through generic routes |
-| Using a narrow permission to reach a broad one | Grant guard, policy history rollback checks, resource-type repointing checks                                                      |
-| Over-privileged database access                | Application connects with a least-privilege role, tested in `test_least_privilege_db_role.py`                                     |
-| Compromised dependency                         | `pip-audit`, `npm audit`, `trivy`, SBOM, manual batched upgrades                                                                  |
+| Threat                                         | Control                                                                                                                                                                                                                                 |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Missing authorization on a route               | Deny by default, `require_authorization` on each route                                                                                                                                                                                  |
+| Acting on a more privileged account            | `users:manage_privileged` is required when the target holds the admin role; generic profile, role, and password routes protect the system account, while authorization routes allow app grants but preserve its three baseline policies |
+| Using a narrow permission to reach a broad one | Grant guard, policy history rollback checks, resource-type repointing checks                                                                                                                                                            |
+| Over-privileged database access                | Application connects with a least-privilege role, tested in `test_least_privilege_db_role.py`                                                                                                                                           |
+| Compromised dependency                         | `pip-audit`, `npm audit`, `trivy`, SBOM, manual batched upgrades                                                                                                                                                                        |
 
 ---
 
@@ -139,7 +139,7 @@ These are decisions, not oversights. Open ones are tracked on the [Concerns](../
 - No multi-factor authentication, by choice. Password or Google sign-in is the main path, and optional passkeys are offered instead of a forced second factor.
 - Password rules are 8 characters with upper, lower and digit, and no breach check.
 - Authorization decisions can be up to 60 seconds stale after an out-of-band permission write.
-- A thief replaying a refresh token from the same IP and user agent inside the 10-second grace window looks like the real device.
+- A thief replaying a refresh token from the same IP inside the 10-second grace window is treated as a benign duplicate; the retry is rejected without revoking the chain.
 - A Valkey outage stops authentication (fail closed).
 - Plus-addressed and Unicode look-alike emails can create separate accounts. Email verification still requires a working mailbox, and a look-alike cannot receive the real person's mail, so this gives no account access. A product that limits things per person (free trials, credits) should add its own control, such as phone or card checks, or a normalised-email duplicate flag.
 - No point-in-time database recovery; backups are periodic dumps.

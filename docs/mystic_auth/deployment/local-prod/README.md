@@ -93,18 +93,18 @@ Deployment overview.
 
 ## Local-prod file map
 
-| File                                                                          | Purpose                                                                                                                   |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `docker/mystic_auth/compose/docker-compose.local-prod-cloudflare.yml`         | Production-shaped stack with an optional Cloudflare Named Tunnel service. The credential is a file-backed Compose secret. |
-| `docker/mystic_auth/compose/docker-compose.local-prod-ngrok.yml`              | Production-shaped stack exposed by the `ngrok` service and `NGROK_DOMAIN`.                                                |
-| `docker/mystic_auth/compose/docker-compose.local-prod-tailscale.yml`          | Production-shaped stack exposed by the `tailscale` service and `docker/tailscale-serve-config.json`.                      |
-| `env/mystic_auth/.env.local-prod-cloudflare.example`                          | Cloudflare local-prod environment template.                                                                               |
-| `env/mystic_auth/.env.local-prod-ngrok.example`                               | ngrok local-prod environment template.                                                                                    |
-| `env/mystic_auth/.env.local-prod-tailscale.example`                           | Tailscale local-prod environment template.                                                                                |
-| `scripts/mystic_auth/docker/local-prod-cloudflare/local-prod-cloudflare-up.*` | Shell, PowerShell, and Command Prompt helpers that always pass both the MysticAuth and app-owned Cloudflare env files.    |
-| `scripts/mystic_auth/docker/local-prod-ngrok/local-prod-ngrok-up.*`           | Shell, PowerShell, and Command Prompt helpers that always pass both the MysticAuth and app-owned ngrok env files.         |
-| `scripts/mystic_auth/docker/local-prod-tailscale/local-prod-tailscale-up.*`   | Shell, PowerShell, and Command Prompt helpers that always pass both the MysticAuth and app-owned Tailscale env files.     |
-| `local-scripts/mystic_auth/local-prod-*/create-system-user.*`                 | Non-interactive system-superuser bootstrap helpers for each local-prod tunnel variant.                                    |
+| File                                                                          | Purpose                                                                                                                    |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `docker/mystic_auth/compose/docker-compose.local-prod-cloudflare.yml`         | Production-shaped stack with an optional Cloudflare Named Tunnel service. The credential is a file-backed Compose secret.  |
+| `docker/mystic_auth/compose/docker-compose.local-prod-ngrok.yml`              | Production-shaped stack exposed by the `ngrok` service and `NGROK_DOMAIN`.                                                 |
+| `docker/mystic_auth/compose/docker-compose.local-prod-tailscale.yml`          | Production-shaped stack exposed by the `tailscale` service and `docker/mystic_auth/tailscale/tailscale-serve-config.json`. |
+| `env/mystic_auth/.env.local-prod-cloudflare.example`                          | Cloudflare local-prod environment template.                                                                                |
+| `env/mystic_auth/.env.local-prod-ngrok.example`                               | ngrok local-prod environment template.                                                                                     |
+| `env/mystic_auth/.env.local-prod-tailscale.example`                           | Tailscale local-prod environment template.                                                                                 |
+| `scripts/mystic_auth/docker/local-prod-cloudflare/local-prod-cloudflare-up.*` | Shell, PowerShell, and Command Prompt helpers that always pass both the MysticAuth and app-owned Cloudflare env files.     |
+| `scripts/mystic_auth/docker/local-prod-ngrok/local-prod-ngrok-up.*`           | Shell, PowerShell, and Command Prompt helpers that always pass both the MysticAuth and app-owned ngrok env files.          |
+| `scripts/mystic_auth/docker/local-prod-tailscale/local-prod-tailscale-up.*`   | Shell, PowerShell, and Command Prompt helpers that always pass both the MysticAuth and app-owned Tailscale env files.      |
+| `local-scripts/mystic_auth/local-prod-*/create-system-user.*`                 | Non-interactive system-superuser bootstrap helpers for each local-prod tunnel variant.                                     |
 
 ---
 
