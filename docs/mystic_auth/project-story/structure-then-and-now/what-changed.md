@@ -13,7 +13,7 @@ tracked files and current additions that illustrate the repository structure on 
 neither tree is an exhaustive file inventory. The "now" tree also omits `__pycache__`,
 `node_modules`, build output, coverage reports, and anything else covered by `.gitignore`. The
 "then" tree is the real commit tree at
-[`946e384`](../../../..), the last commit of the manual, ChatGPT-assisted era, on 14 April, 2026. The
+[`946e384`](https://github.com/Nachiket-2024/mystic-auth/commit/946e384), the last commit of the manual, ChatGPT-assisted era, on 14 April, 2026. The
 "now" tree reflects the repository as verified on 12 November, 2026.
 
 ---

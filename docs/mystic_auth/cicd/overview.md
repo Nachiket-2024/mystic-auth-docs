@@ -14,7 +14,9 @@ jobs push commits, comment on PRs, or need write access. A compromised action
 dependency in this workflow can only read the checkout.
 
 There are seven jobs on every push and pull request, plus the Docker
-full-suite job that runs only on a push to `main`.
+full-suite job that runs only on a push to `main`. A second workflow,
+`.github/workflows/codeql.yml`, runs [CodeQL](#codeql-code-scanning) on its own
+(see the end of this list of jobs).
 
 For local parity, run the Linux-equivalent jobs from the repository's normal
 development shell, run the `windows-tooling` regression through Windows
@@ -26,7 +28,7 @@ than calling the entire workflow passed.
 
 Ownership-specific CI commands live under `ci/mystic_auth/` and `ci/app/`.
 The workflow remains shared because GitHub Actions does not import arbitrary
-YAML from a root `ci/` directory. The scripts split native backend, frontend,
+YAML from a root `ci/` directory. The scripts split host-run backend, frontend,
 tooling, and backup commands; Docker, Compose, browser, and container-suite
 checks remain in the workflow because they exercise the assembled application.
 
@@ -44,6 +46,7 @@ flowchart TD
     Trigger --> Windows["windows-tooling\n PowerShell setup-env\n regression suite"]
     Trigger --> DockerBuild["docker-build\n build and scan runtime images,\n notices, SBOMs, Compose config"]
     Trigger --> BrowserE2E["browser-e2e matrix\n isolated stack per project,\n four Playwright projects"]
+    Trigger --> CodeQL["codeql.yml (separate workflow, also weekly)\n CodeQL security-extended,\n python + javascript-typescript"]
     DockerBuild ~~~ TriggerMain
     TriggerMain --> DockerFullSuite["docker-full-suite\n full backend + frontend suites,\n run inside the actual containers"]
     linkStyle default stroke:#334155,stroke-width:2px
@@ -53,7 +56,7 @@ flowchart TD
 
 ### `backend`: Backend (unit + integration)
 
-- Spins up Postgres 18 and Valkey 9.1.3-alpine as GitHub Actions service containers. Compose
+- Spins up Postgres 18 and Valkey 9.2.0-alpine as GitHub Actions service containers. Compose
   remains the source of truth for local development, but service containers are
   a lower-overhead CI equivalent for the backend job.
 - Provides all required settings as job-level environment variables with
@@ -209,10 +212,30 @@ flowchart TD
   environment or redirecting tests into a `mystic_auth_test` database.
 - Boots the frontend, then runs its full test suite inside that container the same way.
 - Same on-failure `docker compose logs` step as `docker-build`.
-- This repeats tests already run natively. The value is running them through the
+- This repeats tests already run on the runner outside the containers. The value is running them through the
   deployable image, real container filesystem, installed dependencies, and
   Compose networking. It is `main`-only to avoid doubling PR CI time for the
   same source code.
+
+---
+
+### CodeQL code scanning
+
+`.github/workflows/codeql.yml` is separate from `ci.yml` because it needs
+`security-events: write` (granted to its one job only) and a weekly schedule.
+
+- Runs on pushes to `develop` and `main`, on pull requests to `main`, and every
+  Monday, so new CodeQL queries also check code that has not changed.
+- Analyzes `python` and `javascript-typescript` as two matrix jobs with the
+  `security-extended` query suite and `build-mode: none` (no build, no Compose
+  stack).
+- Traces untrusted input to dangerous sinks such as SQL, redirects, and token or
+  log leaks. Linters, `bandit`, and the dependency audits do not do this.
+- Results appear in the repository's Security tab (public repositories only, or
+  with GitHub Code Security). Do not also enable code scanning "default setup"
+  in the repository settings, or every scan runs twice.
+- The actions are pinned by commit SHA like the rest of CI, so
+  `check-ci-action-pinning.sh` covers this file too.
 
 ---
 
@@ -228,9 +251,10 @@ flowchart TD
 - Path-lint scripts (stale `scripts/`/`local-scripts/` path references, stale pre-split `docker`/`env`/`scripts` references) and the env-tools/upstream-sync regression suites, all against throwaway copies, never this repo's own real files.
 - All six shipped runtime images build and pass the CI vulnerability policy; the ngrok binary's vendored Go findings use dated exceptions while every other image has the full High/Critical gate. On every PR, the actual dev Compose stack also boots and serves traffic.
 - Every built runtime image, including Cloudflare Tunnel and `geoipupdate`, has a validated SPDX JSON SBOM retained as a CI artifact, tied to the commit and local image ID used to generate it.
-- On every push to `main`: the entire backend + frontend test suites, re-run a second time inside the real containers rather than a bare runner. Pushes to `develop` run the native validation jobs without this duplicate container pass.
+- On every push to `main`: the entire backend + frontend test suites, re-run a second time inside the real containers rather than a bare runner. Pushes to `develop` run the host-run validation jobs without this duplicate container pass.
 - Dependency vulnerability scanning on every push/PR: `pip-audit` (backend, blocking) and `npm audit --audit-level=high` (frontend, blocking). There is no scheduled/automated dependency-update bot in this repo; dependency bumps are a manual, deliberate action (see the header comment in `backend/requirements.txt`), not something that opens PRs on its own.
 - Secret scanning across full git history (`gitleaks`), independent of the backend/frontend jobs.
+- Static code scanning with CodeQL (`security-extended`) for the Python backend and the TypeScript frontend, on pushes, pull requests, and a weekly schedule.
 
 ---
 

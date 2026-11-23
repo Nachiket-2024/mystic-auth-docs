@@ -39,13 +39,14 @@ container entrypoints, one-shot seed commands, or local helper scripts.
 
 Each mode publishes ports on `127.0.0.1` only, and the defaults are offset per mode so several stacks can run at once. Change one only if another program already uses it.
 
-| Variable             | Dev    | Cloudflare    | ngrok         | Tailscale     | Prod                              |
-| -------------------- | ------ | ------------- | ------------- | ------------- | --------------------------------- |
-| `FRONTEND_HOST_PORT` | `5173` | `8080`        | `8180`        | `8280`        | not published (Caddy owns 80/443) |
-| `BACKEND_HOST_PORT`  | `8000` | `8001`        | `8101`        | `8201`        | not published                     |
-| `POSTGRES_HOST_PORT` | `5433` | not published | not published | not published | not published                     |
-| `VALKEY_HOST_PORT`   | `6380` | not published | not published | not published | not published                     |
-| `BUGSINK_HOST_PORT`  | `8010` | not published | not published | not published | not published                     |
+| Variable                        | Dev                     | Cloudflare    | ngrok         | Tailscale     | Prod                              |
+| ------------------------------- | ----------------------- | ------------- | ------------- | ------------- | --------------------------------- |
+| `FRONTEND_HOST_PORT`            | `5173`                  | `8080`        | `8180`        | `8280`        | not published (Caddy owns 80/443) |
+| `BACKEND_HOST_PORT`             | `8000`                  | `8001`        | `8101`        | `8201`        | not published                     |
+| `POSTGRES_HOST_PORT`            | `5433`                  | not published | not published | not published | not published                     |
+| `VALKEY_HOST_PORT`              | `6380`                  | not published | not published | not published | not published                     |
+| `BUGSINK_HOST_PORT`             | `8010`                  | not published | not published | not published | not published                     |
+| Bugsink (fixed, not a variable) | via `BUGSINK_HOST_PORT` | `8011`        | `8111`        | `8211`        | not published                     |
 
 ---
 
